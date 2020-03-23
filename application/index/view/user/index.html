@@ -1,0 +1,89 @@
+{extend name="layout"} {block name="content"}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-user-circle "></i> 用户列表 </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">用户管理</a>
+        </li>
+    </ul>
+</div>
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                {if condition="isset($username)"}
+                <input type="text" name="username" value="{$username}" placeholder="用户名" class="form-control" id="username">
+                {else /}
+                <input type="text" name="username" placeholder="用户名" class="form-control" id="username"> {/if}
+            </div>
+            <button class="btn btn-primary">检索</button>
+        </div>
+    </div>
+
+</form>
+<hr>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>所属部门</th>
+                    <th>是否为管理员</th>
+                    <th>已禁用</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {volist name="$_user" id="user"}
+                <tr>
+                    <td>{$user.id}</td>
+                    <td>{$user.username}</td>
+                    <td>{$user.department}</td>
+                    <td>{if condition="$user.isadmin eq '1'"}
+                        <span class="text-danger"> <strong>管理员</strong></span>{else /} 普通用户 {/if}</td>
+                    <td>{if condition="$user.forbidden eq '1'"}
+                        <span class="text-primary"><strong>是</strong></span>{else /} 否 {/if}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">操作
+
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{:url('edit',['id'=>$user.id])}">修改</a>
+                                </li>
+
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="javascript:forbidden({$user.id})">禁用</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {/volist}
+            </tbody>
+        </table>
+        {$_user->render()}
+    </div>
+</div>
+
+<script>
+    function forbidden(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定禁用吗?', function () {
+                location.href = "{:url('forbidden')}" + "?id=" + id;
+            });
+        });
+    }
+</script> {/block}

@@ -1,0 +1,62 @@
+{extend name="layout"} {block name="content"}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-user-circle "></i> 用户修改 </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">用户管理</a>
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            
+            <div class="form-group">
+                <label for="username">用户名</label>
+                <input type="text" class="form-control" id="username" name="username" value="{$user.username}" placeholder="用户名">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" class="form-control" value="{$user.password}" name="password" id="password" placeholder="密码">
+            </div>
+            <div class="form-group">
+                <label for="repass">确认密码</label>
+                <input type="password" class="form-control" value="{$user.password}" name="repass" id="repass" placeholder="确认密码">
+            </div>
+            <div class="form-group">
+                <label for="department">所属部门</label>
+                <select name="department" class="form-control" id="department">
+                    <option value="质保一部" {if condition="$user.department eq '质保一部'"}selected{/if}>质保一部</option>
+                    <option value="质保二部" {if condition="$user.department eq '质保二部'"}selected{/if}>质保二部</option>
+                    <option value="质保三部" {if condition="$user.department eq '质保三部'"}selected{/if}>质保三部</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="isadmin">是否为管理员</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isadmin" value="1" {if condition="$user.isadmin eq '1'"}checked{/if}> 管理员
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isadmin" value="0" {if condition="$user.isadmin eq '0'"}checked{/if}>非管理员
+                    </label>
+                </div>
+            </div>
+            <input type="hidden" name="id" value="{$user.id}">
+            <input type="submit" class="btn btn-primary">
+            <a href="javascript:window.history.back()" class="btn btn-danger">返回</a>
+        </form>
+    </div>
+</div>
+
+
+{/block}

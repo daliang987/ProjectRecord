@@ -1,0 +1,124 @@
+{extend name="layout"} {block name="content"}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-dashboard"></i> 记录详情 </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">个人记录</a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="panel panel-info">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <span class="col-md-3">ID</span>
+                    <span class="col-md-9">{$_data.id}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">所属分公司</span>
+                    <span class="col-md-9">{$_data.project_subcompany}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">申请部门</span>
+                    <span class="col-md-9">{$_data.apply_depart}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">申请人</span>
+                    <span class="col-md-9">{$_data.apply_person}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">客户经理</span>
+                    <span class="col-md-9">{$_data.customer_manager}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">项目经理</span>
+                    <span class="col-md-9">{$_data.project_manager}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">项目名称</span>
+                    <span class="col-md-9">{$_data.project_name}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">支持类型</span>
+                    <span class="col-md-9">{$_data.support_type}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">支持人</span>
+                    <span class="col-md-9">{$_data.support_person}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">所在职位</span>
+                    <span class="col-md-9">{$_data.position}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">开始时间</span>
+                    <span class="col-md-9">{$_data.start_time}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">结束时间</span>
+                    <span class="col-md-9">{$_data.end_time}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">工作量</span>
+                    <span class="col-md-9">{$_data.work_time}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">支持状态</span>
+                    <span class="col-md-9">{$_data.status}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">支持成果</span>
+                    <span class="col-md-9">{$_data.support_result}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">报告文档</span>
+                    <span class="col-md-9">{$_data.report_document}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">备注</span>
+                    <span class="col-md-9">{$_data.remarks}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">支持部门</span>
+                    <span class="col-md-9">{$user_depart}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">文档所在目录</span>
+                    <span class="col-md-9">{$_data.doc_folder}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">是否外出支持</span>
+                    <span class="col-md-9">{$_data.out_work_way}</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="col-md-3">是否删除</span>
+                    <span class="col-md-9">{$_data.delflag}</span>
+                </li>
+                <li class="list-group-item">
+                    {if condition="$_data.delflag==0"}
+                    <span class="pull-left">
+                        
+                        <a href="{:url('index/record/edit',['id'=>$_data.id])}" class="btn btn-primary">修改记录</a>
+                    </span>
+                    &nbsp;&nbsp;&nbsp;
+                    {/if}
+                    <a href="javascript:history.back()" class="btn btn-danger">返回</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+{/block}

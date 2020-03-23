@@ -1,0 +1,67 @@
+{extend name="layout"} {block name="content"}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-dashboard"></i> 删除记录管理 </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">删除记录</a>
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed table-striped">
+            <caption>响应式表格布局</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>项目名称</th>
+                    <th>所属分公司</th>
+                    <th>申请人</th>
+                    <th>支持人</th>
+                    <th>支持类型</th>
+                    <th>开始时间</th>
+                    <th>工作量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {volist name="$_data" id="data"}
+                <tr>
+                    <td>{$data.id}</td>
+                    <td>
+                        <a href="{:url('index/record/show',['id'=>$data.id])}">{$data.project_name}</td>
+                    </a>
+                    <td>{$data.project_subcompany}</td>
+                    <td>{$data.apply_person}</td>
+                    <td>{$data.support_person}</td>
+                    <td>{$data.support_type}</td>
+                    <td>{$data.start_time}</td>
+                    <td>{$data.work_time}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="javascript:remove({$data.id})" class="btn btn-primary btn-sm">彻底删除</a>
+                        </div>
+                    </td>
+                </tr>
+                {/volist}
+            </tbody>
+        </table>
+        {$_data->render()}
+    </div>
+</div>
+<script>
+    function remove(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定彻底删除该记录吗?', function () {
+                location.href = "{:url('remove')}" + "?id=" + id;
+            });
+        });
+    }
+</script> {/block}

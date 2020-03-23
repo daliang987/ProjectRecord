@@ -1,0 +1,88 @@
+{extend name="layout"} {block name="content"}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-sitemap"></i> 公司列表 </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">组织管理</a>
+        </li>
+    </ul>
+</div>
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                {if condition="isset($company_name)"}
+                <input type="text" name="com_name" value="{$company_name}" placeholder="组织名称" class="form-control" > 
+                {else /}
+                <input type="text" name="com_name" placeholder="组织名称" class="form-control" > {/if}
+            </div>
+            <button class="btn btn-primary">检索</button>&nbsp;&nbsp;&nbsp;<a href="{:url('index/company/store')}" class="btn btn-danger">添加记录</a>
+        </div>
+    </div>
+</form>
+<hr>
+
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>父组织</th>
+                    <th>公司名称</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {volist name="$_company" id="company"}
+                <tr>
+                    <td>{$company.id}</td>
+                    {if condition="$company.parent_name"}
+                    <td>{$company.parent_name}</td>
+                    {else /}
+                    <td>顶级组织</td>
+                    {/if} 
+                    <td>{$company.com_name}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">操作
+
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{:url('index/company/edit',['id'=>$company.id])}">修改</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="javascript:del({$company.id})">删除</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                {/volist}
+            </tbody>
+        </table>
+       {$_company->render()}
+    </div>
+</div>
+
+<script>
+    function del(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定删除吗?', function () {
+                location.href = "{:url('del')}" + "?id=" + id;
+            })
+        });
+    }
+</script> 
+
+
+{/block}

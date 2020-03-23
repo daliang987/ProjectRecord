@@ -1,0 +1,56 @@
+{extend name="layout"} {block name="content"}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-comments-o "></i> 我要吐槽 </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">帮助</a>
+        </li>
+    </ul>
+</div>
+<div class="bug-show">
+    {volist name="comment" id="c"}
+    <div class="media">
+        <div class="media-left media-middle">
+            <a href="#">
+                <img class="media-object" src="__STATIC__/image/header.jpg" width="60" alt="header">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading"><i class="nickname">{$c.username}</i>&nbsp;&nbsp;&nbsp;
+                <small>{:date('Y-m-d H:i:s',strtotime($c.datetime))}
+                </small>
+            </h4>
+            {$c.comment}<br>
+            {if condition="$c.uid==session('userid')"}<a href="javascript:confirmdel('{$c.cid}')" >删除</a>{/if}
+        </div>
+    </div>
+    {/volist}
+
+</div>
+{$comment->render()}
+<hr>
+<div class="comment">
+    <form method="post">
+        <div class="form-group">
+            <textarea name="comment" id="" cols="30" rows="4" class="form-control"></textarea>
+        </div>
+        <input type="submit" value="提交bug" class="btn btn-primary">
+    </form>
+</div>
+<link rel="stylesheet" type="text/css" href="__STATIC__/css/common.css">
+<script>
+    function confirmdel(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定删除吗?', function () {
+                location.href="{:url('index/help/delbug')}"+"?id="+id;
+            });
+        })
+    }
+</script> {/block}

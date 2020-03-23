@@ -1,0 +1,151 @@
+{extend name="layout"} {block name="content"}
+
+<div class="app-title">
+    <div>
+        <h1>
+            <i class="fa fa-home"></i> 个人首页 </h1>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="fa fa-home fa-lg"></i>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#">记录分析</a>
+        </li>
+    </ul>
+</div>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="time_cbox" {if condition="isset($start_time) or isset($end_time)" } checked="checked" {/if}> 按时间检索 </label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                {if condition="isset($start_time)"}
+                <input type="text" autocomplete="off" name="start_time" placeholder="开始时间" value="{$start_time}" class="form-control" id="date_timepicker_start"> {else /}
+                <input type="text" autocomplete="off" name="start_time" placeholder="开始时间" disabled="true" class="form-control" id="date_timepicker_start"> {/if}
+
+            </div>
+            <div class="col-md-3">
+                {if condition="isset($end_time)"}
+                <input type="text" autocomplete="off" name="end_time" placeholder="结束时间" value="{$end_time}" class="form-control" id="date_timepicker_end"> {else /}
+                <input type="text" autocomplete="off" name="end_time" placeholder="结束时间" disabled="true" class="form-control" id="date_timepicker_end"> {/if}
+
+            </div>
+            <button class="btn btn-primary">检索</button>
+        </div>
+    </div>
+
+
+</form>
+
+<hr>
+
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="tile">
+            <div class="tile-title">按人员工作量统计</div>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>人员</th>
+                    <th>支持次数</th>
+                    <th>工作量(小时)</th>
+                </tr>
+                {volist name="person_count" id="p"}
+
+                <tr>
+                    <td>{$p[0]}</td>
+                    <td>{$p[2]}</td>
+                    <td>{$p[1]}</td>
+                </tr>
+                {/volist}
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="tile">
+            <div class="tile-title">按支持类型统计</div>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>支持类型</th>
+                    <th>支持次数</th>
+                    <th>工作量(小时)</th>
+                </tr>
+                {volist name="type_count" id="t"}
+                {if condition="$t[1]"}
+                <tr>
+                    <td>{$t[0]}</td>
+                    <td>{$t[2]}</td>
+                    <td>{$t[1]}</td>
+                </tr>
+                {/if}
+                {/volist}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="tile">
+            <div class="tile-title">按所属地区统计</div>
+            <table class="table table-striped table-hover table-bordered">
+                <tr>
+                    <th>所属分公司</th>
+                    <th>支持次数</th>
+                    <th>工作量(小时)</th>
+                </tr>
+                {volist name="subcom_count" id="sub"}
+                <tr>
+                    <td>{$sub[0]}</td>
+                    <td>{$sub[2]}</td>
+                    <td>{$sub[1]}</td>
+                </tr>
+                {/volist}
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    require(['hdjs'], function (hdjs) {
+        hdjs.datetimepicker('#date_timepicker_start', {
+            format: 'Y-m-d',
+            onShow: function (ct) {
+                this.setOptions({
+                    maxDate: jQuery('#date_timepicker_end').val() ? jQuery('#date_timepicker_end').val() : false
+                })
+            },
+            timepicker: false
+        });
+        hdjs.datetimepicker('#date_timepicker_end', {
+            format: 'Y-m-d',
+            onShow: function (ct) {
+                this.setOptions({
+                    minDate: jQuery('#date_timepicker_start').val() ? jQuery('#date_timepicker_start').val() : false
+                })
+            },
+            timepicker: false
+        });
+
+
+        $('#time_cbox').click(function () {
+            if (!$('#time_cbox').attr('checked')) {
+                $('#time_cbox').attr('checked', 'checked');
+                $('#date_timepicker_start').removeAttr('disabled');
+                $('#date_timepicker_end').removeAttr('disabled');
+            } else {
+                $('#time_cbox').removeAttr('checked');
+                $('#date_timepicker_start').attr('disabled', 'disabled');
+                $('#date_timepicker_end').attr('disabled', 'disabled');
+            }
+        });
+    });
+</script> {/block}
