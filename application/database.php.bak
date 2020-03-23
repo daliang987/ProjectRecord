@@ -14,7 +14,7 @@ return [
     // 'type'            => 'mysql',
     'type'            => 'Sqlsrv',
     // 服务器地址
-    'hostname'        => 'ED39D-78458-CF61B-D2271-65D11',
+    'hostname'        => '192.168.51.41',
     // 数据库名
     'database'        => 'ProjectRecord',
     // 用户名
