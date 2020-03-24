@@ -189,13 +189,7 @@ class Record extends Auth
                         }
                         */
 
-                        //测试环境mysql
-                        // if(!in_array($data[$index]["B"],$coms)){
-                        //     array_push($fillB_record,"B".$index);
-                        // }
-
-                        // 正式环境 sqlserver
-                        if(!array_key_exists($data[$index]["B"],$coms)){
+                        if(!array_key_exists($data[$index]["B"],$coms) && !in_array($data[$index]["B"],$coms)){
                             array_push($fillB_record,"B".$index);
                         }
                     }
