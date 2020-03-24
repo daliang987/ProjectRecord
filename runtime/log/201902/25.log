@@ -1,0 +1,1518 @@
+---------------------------------------------------------------
+[ 2019-02-25T14:04:15+08:00 ] 192.168.51.109 GET /wdl/public/index/index/login.html
+[ info ] 192.168.51.41/wdl/public/index/index/login.html [运行时间：0.542031s][吞吐率：1.84req/s] [内存消耗：3,023.59kb] [文件加载：51]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Index->login[ D:\xampp5\htdocs\wdl\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\index\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-02-25T14:04:22+08:00 ] 192.168.51.109 POST /wdl/public/index/index/login.html
+[ info ] 192.168.51.41/wdl/public/index/index/login.html [运行时间：0.734042s][吞吐率：1.36req/s] [内存消耗：3,168.43kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '43',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.51.41',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/index/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+  'username' => '路翠',
+  'password' => '123456',
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Index->login[ D:\xampp5\htdocs\wdl\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.240014s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'userinfo' [ RunTime:0.096005s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='userinfo' [ RunTime:0.058003s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [username] = '路翠') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.037002s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:04:23+08:00 ] 192.168.51.109 GET /wdl/public/index/record/person.html
+[ info ] 192.168.51.41/wdl/public/index/record/person.html [运行时间：0.383022s][吞吐率：2.61req/s] [内存消耗：3,381.80kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'person',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/index/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->person[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\person.html [ array (
+  0 => 'support_person',
+  1 => 'user',
+  2 => 'subcom_count',
+  3 => 'person_count',
+  4 => 'type_count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.035002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '路翠') AS thinkphp) AS T1 [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'userinfo' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='userinfo' [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '路翠') AS thinkphp) AS T1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '路翠') AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:04:23+08:00 ] 192.168.51.109 POST /wdl/public/index/index/login.html
+[ info ] 192.168.51.41/wdl/public/index/index/login.html [运行时间：0.502028s][吞吐率：1.99req/s] [内存消耗：3,117.29kb] [文件加载：53]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '43',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.51.41',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/index/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+  'username' => '路翠',
+  'password' => '123456',
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Index->login[ D:\xampp5\htdocs\wdl\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-02-25T14:04:24+08:00 ] 192.168.51.109 GET /wdl/public/index/record/person.html
+[ info ] 192.168.51.41/wdl/public/index/record/person.html [运行时间：0.279016s][吞吐率：3.58req/s] [内存消耗：3,381.80kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'person',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/index/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->person[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\person.html [ array (
+  0 => 'support_person',
+  1 => 'user',
+  2 => 'subcom_count',
+  3 => 'person_count',
+  4 => 'type_count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '路翠') AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'userinfo' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='userinfo' [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '路翠') AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '路翠') AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:04:35+08:00 ] 192.168.51.109 GET /wdl/public/index/record/store.html
+[ info ] 192.168.51.41/wdl/public/index/record/store.html [运行时间：0.401023s][吞吐率：2.49req/s] [内存消耗：3,351.17kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/person.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->store[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\store.html [ array (
+  0 => '_com',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.041003s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.040002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.035002s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:04:38+08:00 ] 192.168.51.109 POST /wdl/public/index/record/store.html
+[ info ] 192.168.51.41/wdl/public/index/record/store.html [运行时间：0.291017s][吞吐率：3.44req/s] [内存消耗：3,277.33kb] [文件加载：53]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '40',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.51.41',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+  'com' => '北京总部',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->store[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  [id] FROM [company] WHERE  [com_name] = '北京总部') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 1) AS thinkphp) AS T1 [ RunTime:0.010000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:05:59+08:00 ] 192.168.51.109 POST /wdl/public/index/record/store.html
+[ info ] 192.168.51.41/wdl/public/index/record/store.html [运行时间：0.649037s][吞吐率：1.54req/s] [内存消耗：3,393.51kb] [文件加载：56]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '1248',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.51.41',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+  'project_subcompany' => '北京总部',
+  'apply_depart' => '产品研发中心',
+  'apply_person' => '李银松',
+  'customer_manager' => '/',
+  'project_manager' => '',
+  'project_name' => '网信办hybase实体机容器性能对比测试',
+  'support_type' => '性能测试',
+  'other' => '',
+  'support_person' => '路翠',
+  'position' => '高级工程师',
+  'start_time' => '2019-02-13',
+  'end_time' => '2019-02-20',
+  'work_time' => '40',
+  'overtime' => '',
+  'status' => '已完成',
+  'out_work_way' => '市内外出支持',
+  'support_result' => '完成性能测试',
+  'report_document' => '\\\\192.168.105.35\\项目资料（新）\\2019\\2019-02-12 网信办hybase实体机容器性能对比测试',
+  'doc_folder' => '\\\\192.168.105.35\\项目资料（新）\\2019\\2019-02-12 网信办hybase实体机容器性能对比测试',
+  'remarks' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->store[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => '_com',
+  1 => 'code',
+  2 => 'msg',
+  3 => 'data',
+  4 => 'url',
+  5 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.099005s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.048002s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.039002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.034002s ]
+[ sql ] [ SQL ] INSERT INTO [record] ([project_subcompany] , [apply_depart] , [apply_person] , [customer_manager] , [project_manager] , [project_name] , [support_type] , [support_person] , [position] , [start_time] , [end_time] , [work_time] , [overtime] , [status] , [out_work_way] , [support_result] , [report_document] , [doc_folder] , [remarks]) VALUES ('北京总部' , '产品研发中心' , '李银松' , '/' , '' , '网信办hybase实体机容器性能对比测试' , '性能测试' , '路翠' , '高级工程师' , '2019-02-13' , '2019-02-20' , '40' , '' , '已完成' , '市内外出支持' , '完成性能测试' , '\\192.168.105.35\项目资料（新）\2019\2019-02-12 网信办hybase实体机容器性能对比测试' , '\\192.168.105.35\项目资料（新）\2019\2019-02-12 网信办hybase实体机容器性能对比测试' , '') [ RunTime:0.077005s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:06:03+08:00 ] 192.168.51.109 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.421024s][吞吐率：2.38req/s] [内存消耗：3,607.11kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.064004s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.006000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:06:13+08:00 ] 192.168.51.109 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.284016s][吞吐率：3.52req/s] [内存消耗：3,607.11kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:06:49+08:00 ] 192.168.51.109 GET /wdl/public/index/record/store.html
+[ info ] 192.168.51.41/wdl/public/index/record/store.html [运行时间：0.269015s][吞吐率：3.72req/s] [内存消耗：3,351.20kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->store[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\store.html [ array (
+  0 => '_com',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:06:52+08:00 ] 192.168.51.109 POST /wdl/public/index/record/store.html
+[ info ] 192.168.51.41/wdl/public/index/record/store.html [运行时间：0.275016s][吞吐率：3.64req/s] [内存消耗：3,277.30kb] [文件加载：53]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '49',
+  'accept' => '*/*',
+  'origin' => 'http://192.168.51.41',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+  'com' => '北京分公司',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->store[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  [id] FROM [company] WHERE  [com_name] = '北京分公司') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 2) AS thinkphp) AS T1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:08:33+08:00 ] 192.168.51.80 GET /wdl/public/index/index/login.html
+[ info ] 192.168.51.41/wdl/public/index/index/login.html [运行时间：0.266016s][吞吐率：3.76req/s] [内存消耗：3,023.61kb] [文件加载：51]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Index->login[ D:\xampp5\htdocs\wdl\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\index\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-02-25T14:08:42+08:00 ] 192.168.51.80 POST /wdl/public/index/index/login.html
+[ info ] 192.168.51.41/wdl/public/index/index/login.html [运行时间：0.473027s][吞吐率：2.11req/s] [内存消耗：3,168.50kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '52',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.51.41',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/index/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+  'username' => '周欣玲',
+  'password' => '123456',
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Index->login[ D:\xampp5\htdocs\wdl\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.116007s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'userinfo' [ RunTime:0.044002s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='userinfo' [ RunTime:0.044003s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [username] = '周欣玲') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.010000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:08:42+08:00 ] 192.168.51.80 GET /wdl/public/index/record/person.html
+[ info ] 192.168.51.41/wdl/public/index/record/person.html [运行时间：0.360021s][吞吐率：2.78req/s] [内存消耗：3,379.51kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'person',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/index/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->person[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\person.html [ array (
+  0 => 'support_person',
+  1 => 'user',
+  2 => 'subcom_count',
+  3 => 'person_count',
+  4 => 'type_count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.035002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '周欣玲') AS thinkphp) AS T1 [ RunTime:0.027002s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'userinfo' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='userinfo' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '周欣玲') AS thinkphp) AS T1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '周欣玲') AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:08:47+08:00 ] 192.168.51.80 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.331019s][吞吐率：3.02req/s] [内存消耗：3,501.25kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/person.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.033002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.014001s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:08:53+08:00 ] 192.168.51.80 GET /wdl/public/record/746.html
+[ info ] 192.168.51.41/wdl/public/record/746.html [运行时间：0.307018s][吞吐率：3.26req/s] [内存消耗：3,352.34kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'show',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+  'id' => '746',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->show[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\show.html [ array (
+  0 => '_data',
+  1 => 'user_depart',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [id] = 746) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.017001s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'userinfo' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='userinfo' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [username] = '周欣玲') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:10:22+08:00 ] 192.168.51.80 GET /wdl/public/index/index/login.html
+[ info ] 192.168.51.41/wdl/public/index/index/login.html [运行时间：0.256015s][吞吐率：3.91req/s] [内存消耗：3,115.95kb] [文件加载：53]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Index->login[ D:\xampp5\htdocs\wdl\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2019-02-25T14:10:23+08:00 ] 192.168.51.80 GET /wdl/public/index/record/person.html
+[ info ] 192.168.51.41/wdl/public/index/record/person.html [运行时间：0.615035s][吞吐率：1.63req/s] [内存消耗：3,379.17kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'person',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->person[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\person.html [ array (
+  0 => 'support_person',
+  1 => 'user',
+  2 => 'subcom_count',
+  3 => 'person_count',
+  4 => 'type_count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.159009s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.077004s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.054003s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '周欣玲') AS thinkphp) AS T1 [ RunTime:0.004001s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'userinfo' [ RunTime:0.014000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='userinfo' [ RunTime:0.033002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '周欣玲') AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [delflag] = '0'  AND [support_person] = '周欣玲') AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [userinfo] WHERE  [forbidden] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:10:28+08:00 ] 192.168.51.80 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.279016s][吞吐率：3.58req/s] [内存消耗：3,501.25kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/person.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:10:31+08:00 ] 192.168.51.80 GET /wdl/public/index/record/edit/id/746.html
+[ info ] 192.168.51.41/wdl/public/index/record/edit/id/746.html [运行时间：0.330019s][吞吐率：3.03req/s] [内存消耗：3,370.36kb] [文件加载：54]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+  'id' => '746',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->edit[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\edit.html [ array (
+  0 => '_com',
+  1 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [id] = 746) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.015001s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.032002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:12:40+08:00 ] 192.168.51.109 POST /wdl/public/index/record/store.html
+[ info ] 192.168.51.41/wdl/public/index/record/store.html [运行时间：0.628036s][吞吐率：1.59req/s] [内存消耗：3,391.44kb] [文件加载：56]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '794',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.51.41',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+  'project_subcompany' => '北京分公司',
+  'apply_depart' => '北分军工开发部',
+  'apply_person' => '晏清',
+  'customer_manager' => '/',
+  'project_manager' => '',
+  'project_name' => '无锡56所项目功能确认测试',
+  'support_type' => '功能测试',
+  'other' => '',
+  'support_person' => '路翠',
+  'position' => '高级工程师',
+  'start_time' => '2019-01-16',
+  'end_time' => '2019-01-18',
+  'work_time' => '14',
+  'overtime' => '6',
+  'status' => '已完成',
+  'out_work_way' => '市外出差支持',
+  'support_result' => '配合客户完成功能确认',
+  'report_document' => '无',
+  'doc_folder' => '',
+  'remarks' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->store[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => '_com',
+  1 => 'code',
+  2 => 'msg',
+  3 => 'data',
+  4 => 'url',
+  5 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.088005s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.113007s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.112006s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO [record] ([project_subcompany] , [apply_depart] , [apply_person] , [customer_manager] , [project_manager] , [project_name] , [support_type] , [support_person] , [position] , [start_time] , [end_time] , [work_time] , [overtime] , [status] , [out_work_way] , [support_result] , [report_document] , [doc_folder] , [remarks]) VALUES ('北京分公司' , '北分军工开发部' , '晏清' , '/' , '' , '无锡56所项目功能确认测试' , '功能测试' , '路翠' , '高级工程师' , '2019-01-16' , '2019-01-18' , '14' , '6' , '已完成' , '市外出差支持' , '配合客户完成功能确认' , '无' , '' , '') [ RunTime:0.031002s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:12:40+08:00 ] 192.168.51.80 POST /wdl/public/index/record/edit/id/746.html
+[ info ] 192.168.51.41/wdl/public/index/record/edit/id/746.html [运行时间：0.617035s][吞吐率：1.62req/s] [内存消耗：3,507.36kb] [文件加载：59]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'content-length' => '838',
+  'cache-control' => 'max-age=0',
+  'origin' => 'http://192.168.51.41',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/edit/id/746.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+  'project_subcompany' => '北京分公司',
+  'apply_depart' => '北分政企事业部',
+  'apply_person' => '晏清',
+  'customer_manager' => '/',
+  'project_manager' => '',
+  'project_name' => '无锡56所项目',
+  'support_type' => '功能测试',
+  'other' => '',
+  'support_person' => '周欣玲',
+  'position' => '助理测试工程师',
+  'start_time' => '2019-01-16',
+  'end_time' => '2019-01-18',
+  'work_time' => '29',
+  'overtime' => '5',
+  'status' => '已完成',
+  'out_work_way' => '市外出差支持',
+  'support_result' => '1 现场部署TRSWAS、CKM环境
+2 为客户演示TRSWAS、CKM功能',
+  'report_document' => '',
+  'doc_folder' => '',
+  'remarks' => '',
+  'id' => '746',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->edit[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => '_com',
+  1 => 'data',
+  2 => 'code',
+  3 => 'msg',
+  4 => 'url',
+  5 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.052003s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.116007s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.109006s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [id] = 746) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'company' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='company' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [company] WHERE  [com_pid] = 0) AS thinkphp) AS T1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [id] = 746) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE [record] SET [project_subcompany]='北京分公司',[apply_depart]='北分政企事业部',[apply_person]='晏清',[customer_manager]='/',[project_manager]='',[project_name]='无锡56所项目',[support_type]='功能测试',[support_person]='周欣玲',[position]='助理测试工程师',[start_time]='2019-01-16',[end_time]='2019-01-18',[work_time]='29',[overtime]='5',[status]='已完成',[out_work_way]='市外出差支持',[support_result]='1 现场部署TRSWAS、CKM环境
+2 为客户演示TRSWAS、CKM功能',[report_document]='',[doc_folder]='',[remarks]='' FROM [record]   WHERE  [id] = 746 [ RunTime:0.026001s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:12:44+08:00 ] 192.168.51.80 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.276016s][吞吐率：3.62req/s] [内存消耗：3,501.27kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/edit/id/746.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.012001s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:12:44+08:00 ] 192.168.51.109 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.319019s][吞吐率：3.13req/s] [内存消耗：3,605.47kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.032002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.004000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:15:16+08:00 ] 192.168.51.109 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.503028s][吞吐率：1.99req/s] [内存消耗：3,605.69kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.75 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=6st9n8uunh2e881g9b75aano33',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.095006s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.072004s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.040002s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '路翠'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.003000s ]
+---------------------------------------------------------------
+[ 2019-02-25T14:15:21+08:00 ] 192.168.51.80 GET /wdl/public/index/record/index.html
+[ info ] 192.168.51.41/wdl/public/index/record/index.html [运行时间：0.296017s][吞吐率：3.38req/s] [内存消耗：3,501.28kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp5\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.51.41',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3521.2 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.51.41/wdl/public/index/record/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'cookie' => 'PHPSESSID=nqq2b5536j5svtsup0c4vm3vt4',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT Sqlsrv
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp5\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp5\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] sqlsrv:Database=ProjectRecord;Server=192.168.51.41,1433
+[ sql ] [ SQL ] SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT column_name FROM information_schema.key_column_usage WHERE table_name='record' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  COUNT(*) AS tp_count FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY start_time desc) AS ROW_NUMBER FROM (SELECT  * FROM [record] WHERE  [support_person] = '周欣玲'  AND [delflag] = '0') AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 0 + 1 AND 0 + 20) [ RunTime:0.002000s ]

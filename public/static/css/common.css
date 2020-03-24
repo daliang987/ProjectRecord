@@ -1,0 +1,14 @@
+*{
+    font-family: "微软雅黑";
+}
+
+
+.bug-show{
+    border: 1px dashed #00635a;
+    padding:15px;
+    min-height: 500px;
+}
+
+.nickname{
+    color:#dc3545
+}
