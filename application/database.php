@@ -11,18 +11,18 @@
 
 return [
     // 数据库类型
-    'type'            => 'mysql',
-    //'type'            => 'Sqlsrv',
+    //'type'            => 'mysql',
+    'type'            => 'Sqlsrv',
     // 服务器地址
     'hostname'        => 'localhost',
     // 数据库名
     'database'        => 'ProjectRecord',
     // 用户名
-    'username'        => 'root',
+    'username'        => 'sa',
     // 密码
     'password'        => 'trsadmin',
     // 端口
-    'hostport'        => '3306',
+    'hostport'        => '1433',
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
