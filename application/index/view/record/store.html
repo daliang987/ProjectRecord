@@ -163,6 +163,28 @@
 
 <script>
     require(['hdjs'], function (hdjs) {
+
+
+        function load_depart() {
+            $('#depart').html('');
+            com = $('#area').val();
+            if (com != null) {
+                $.post('{:url("store")}', { com: com }, function (data) {
+                    data = eval('(' + data + ')');
+                    $.each(data, function (n, value) {
+                        $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
+                    });
+
+                });
+
+            }
+
+
+        }
+
+        load_depart();
+
+
         hdjs.datetimepicker('#date_timepicker_start', {
             format: 'Y-m-d',
             onShow: function (ct) {

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1585028492;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html";i:1587029521;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1585028492;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -335,6 +335,25 @@
 
 <script>
     require(['hdjs'], function (hdjs) {
+
+
+        function load_depart() {
+            $('#depart').html('');
+            com = $('#area').val();
+            if (com != null) {
+                $.post('<?php echo url("store"); ?>', { com: com }, function (data) {
+                    data = eval('(' + data + ')');
+                    $.each(data, function (n, value) {
+                        $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
+                    });
+
+                });
+            }
+        }
+
+        load_depart();
+
+
         hdjs.datetimepicker('#date_timepicker_start', {
             format: 'Y-m-d',
             onShow: function (ct) {

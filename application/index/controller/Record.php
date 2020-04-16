@@ -108,6 +108,7 @@ class Record extends Auth
 
         if (request()->isPost()) {
             $data = input('post.');
+            cookie('department',input('post.apply_depart'));
             // halt($data);
             // 其他类型支持处理
             if ($data['support_type'] == '其他') {
@@ -677,10 +678,12 @@ class Record extends Auth
                 $v['work_time'] = $w_arr[0] * $w_arr[1];
             }
 
-            if (!in_array($v[$type], array_keys($tongji))) {
-                $tongji[$v[$type]] = $v['work_time'];
+            $group_type=strtoupper($v[$type]);
+
+            if (!in_array($group_type, array_keys($tongji))) {
+                $tongji[$group_type] = $v['work_time'];
             } else {
-                $tongji[$v[$type]] = $tongji[$v[$type]] + $v['work_time'];
+                $tongji[$group_type] = $tongji[$group_type] + $v['work_time'];
             }
         }
 
@@ -688,13 +691,13 @@ class Record extends Auth
 
         $tongji2 = array();
         foreach ($tongji as $x => $time) {  // 北京=>230
-            $tongji2[] = array($x, $time, 0); //$tongji2=array(['北京','230',0])
+            $tongji2[] = array($x, $time, 0); // $tongji2=array(['北京','230',0])
         }
 
         foreach ($tongji2 as $k => $v) {
-            foreach ($data as $index => $fields) {
-                if ($fields[$type] == $v[0]) { //如果字段的值==当前分类的类型如：记录中的北京分公司==当前分类的北京分公司
-                    $v[2] = $v[2] + 1;
+            foreach ($data as $row) {
+                if (strtoupper($row[$type]) == $v[0]) { //如果字段的值==当前分类的类型如：记录中的北京分公司==当前分类的北京分公司
+                    $v[2] = $v[2] + 1; // 通过判断当前统计数组中的字段值与所有记录中的字段值是否相等，来增加次数
                 }
             }
             $tongji2[$k] = $v;    //需要将v重新赋给tongji2
@@ -965,6 +968,25 @@ class Record extends Auth
             array_push($value, round(($value[2] / $all_work) * 100, 2) . '%');
             array_push($tongji, $value);
         }
+
+
+        $l = 1;
+        // 相同项目总工作量
+        array_push($tongji,array('','','',''));
+        array_push($tongji, array('编号', 'Top10工作量项目', '工作量', '支持次数', '工作量占比'));
+        $project_count=$this->chartsByType('project_name',$start_time,$end_time,$support_person);
+        if(count($project_count)>10){
+            $top_project=array_slice($project_count,0,10);
+        }else{
+            $top_project=array_slice($project_count,0,count($project_count));
+        }
+        
+        foreach ($top_project as $key => $value) {
+            array_unshift($value, $l++);
+            array_push($value, round(($value[2] / $all_work) * 100, 2) . '%');
+            array_push($tongji, $value);
+        }
+
 
         $this->exportExcel($newdata, $tongji, '支持记录', $fileHeader, '项目支持记录');
     }
