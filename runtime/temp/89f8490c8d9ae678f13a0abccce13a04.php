@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html";i:1587034408;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1585028492;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\xampp\htdocs\wdl\public/../application/index\view\record\edit.html";i:1587033957;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1585028492;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -193,150 +193,157 @@
                 <select class="form-control" name="project_subcompany" id="area">
                     <option selected disabled>所属区域</option>
                     <?php if(is_array($_com) || $_com instanceof \think\Collection || $_com instanceof \think\Paginator): $i = 0; $__LIST__ = $_com;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$com): $mod = ($i % 2 );++$i;?>
-                    <option value="<?php echo $com['com_name']; ?>"><?php echo $com['com_name']; ?></option>
+                    <option value="<?php echo $com['com_name']; ?>" <?php if($data['project_subcompany']==$com['com_name']): ?> selected
+                        <?php endif; ?>><?php echo $com['com_name']; ?></option>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                 </select>
-
             </div>
             <div class="form-group has-feedback">
                 <label for="depart">申请部门</label>
                 <select class="form-control" id="depart" name="apply_depart">
+                    <option value="<?php echo $data['apply_depart']; ?>" selected><?php echo $data['apply_depart']; ?></option>
                 </select>
                 <span class="help-block">选择所属区域后，稍等片刻选择申请部门.</span>
             </div>
-
-            <div class="form-group  has-feedback">
+            <div class="form-group has-feedback">
                 <label for="apply_person">申请人</label>
-                <input type="text" class="form-control" id="apply_person" name="apply_person" placeholder="请输入申请人"
-                    aria-describedby="apply_person">
+                <input type="text" class="form-control" id="apply_person" value="<?php echo $data['apply_person']; ?>"
+                    name="apply_person" placeholder="请输入申请人">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="apply_person" class="sr-only">(success)</span>
                 <span class="help-block">表单申请人姓名</span>
             </div>
             <div class="form-group">
                 <label for="customer_manager">客户经理</label>
-                <input type="text" class="form-control" id="customer_manager" name="customer_manager"
-                    placeholder="请输入客户经理" value="/">
+                <input type="text" class="form-control" id="customer_manager" value="<?php echo $data['customer_manager']; ?>"
+                    name="customer_manager" placeholder="请输入客户经理">
                 <span class="help-block">客户方经理姓名</span>
             </div>
             <div class="form-group">
                 <label for="project_manager">项目经理</label>
-                <input type="text" class="form-control" id="project_manager" name="project_manager"
-                    placeholder="请输入项目经理">
+                <input type="text" class="form-control" id="project_manager" value="<?php echo $data['project_manager']; ?>"
+                    name="project_manager" placeholder="请输入项目经理">
                 <span class="help-block">项目经理姓名</span>
             </div>
             <div class="form-group has-feedback">
                 <label for="project_name">项目名称</label>
-                <input type="text" class="form-control" id="project_name" name="project_name" placeholder="请输入项目名称"
-                    aria-describedby="project_name">
+                <input type="text" class="form-control" id="project_name" value="<?php echo $data['project_name']; ?>"
+                    name="project_name" placeholder="请输入项目名称">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="project_name" class="sr-only">(success)</span>
                 <span class="help-block">请填写项目标准名称.</span>
             </div>
             <div class="form-group">
                 <label for="support_type">支持内容</label>
-                <select name="support_type" id="support_type" class="form-control">
-                    <option value="性能测试">性能测试</option>
-                    <option value="安全测试">安全测试</option>
-                    <option value="功能测试">功能测试</option>
-                    <option value="其他">其他</option>
-                </select>
+                <select class="form-control" name="support_type" id="support_type">
+                    <option value="性能测试" <?php if($data['support_type']=='性能测试'): ?> selected<?php endif; ?>>性能测试</option>
+                    <option value="安全测试" <?php if($data['support_type']=='安全测试'): ?> selected<?php endif; ?>>安全测试</option>
+                    <option value="功能测试" <?php if($data['support_type']=='功能测试'): ?> selected<?php endif; ?>>功能测试</option>
 
+                    <option value="其他" <?php if($data['support_type'] != '性能测试' AND $data['support_type'] != '功能测试' AND $data['support_type'] != '安全测试'): ?> selected <?php endif; ?>>其他</option>
+                </select>
             </div>
 
             <div class="form-group" id="other_support">
-                <label for="other">其他支持类型</label>
-                <input type="text" name="other" id="other" placeholder="请输入其他支持类型" class="form-control">
+                <label for="other">其他支持</label>
+                <input type="text" name="other" <?php if($data['support_type'] != '性能测试' AND $data['support_type'] != '功能测试' AND $data['support_type'] != '安全测试'): ?> value='<?php echo $data['support_type']; ?>' <?php endif; ?> id="other" class="form-control">
                 <span class="help-block">其他类型支持时，填写此内容.</span>
             </div>
 
             <div class="form-group has-feedback">
                 <label for="support_person">支持人</label>
-                <input type="text" class="form-control" id="support_person" pattern="^[\u4e00-\u9fa5]{2,4}$"
-                    title="只能填写2-4位汉字" name="support_person" placeholder="请输入支持人" aria-describedby="support_person">
+                <input type="text" class="form-control" id="support_person" value="<?php echo $data['support_person']; ?>"
+                    name="support_person" placeholder="请输入支持人">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="support_person" class="sr-only">(success)</span>
                 <span class="help-block">支持人姓名.</span>
             </div>
             <div class="form-group">
                 <label for="position">职位</label>
+                <?php echo $data['position']; ?>
                 <select class="form-control" name="position">
-                    <option>助理测试工程师</option>
-                    <option>测试工程师</option>
-                    <option>高级测试工程师</option>
-                    <option>测试经理</option>
-                    <option>其他</option>
+                    <option value="助理测试工程师" <?php if(in_array(($data['position']), explode(',',"助理工程师,助理测试工程师"))): ?> selected <?php endif; ?>>助理测试工程师
+                    </option>
+                    <option value="测试工程师" <?php if($data['position']=='测试工程师'): ?> selected <?php endif; ?>>测试工程师</option>
+                    <option value="高级测试工程师" <?php if(in_array(($data['position']), explode(',',"高级工程师,高级测试工程师"))): ?> selected <?php endif; ?>>高级测试工程师
+                    </option>
+                    <option value="部门经理" <?php if(in_array(($data['position']), explode(',',"部门经理,经理"))): ?> selected <?php endif; ?>>部门经理</option>
+                    <option value="其他" <?php if(!in_array(($data['position']), explode(',',"助理测试工程师,测试工程师,助理工程师,高级工程师,高级测试工程师,经理,部门经理"))): ?>
+                        selected <?php endif; ?>>其他</option>
                 </select>
                 <span class="help-block">支持人职位</span>
             </div>
             <div class="form-group has-feedback">
                 <label for="date_timepicker_start">实际开始时间</label>
-                <input id="date_timepicker_start" autocomplete="off" name="start_time" class="form-control" value=""
-                    aria-describedby="date_timepicker_start">
+                <input id="date_timepicker_start" autocomplete="off" name="start_time" class="form-control"
+                    value="<?php echo $data['start_time']; ?>">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="date_timepicker_start" class="sr-only">(success)</span>
                 <span class="help-block">支持的实际开始时间</span>
             </div>
             <div class="form-group">
                 <label for="date_timepicker_end">实际结束时间</label>
-                <input id="date_timepicker_end" autocomplete="off" name="end_time" class="form-control" value="">
+                <input id="date_timepicker_end" autocomplete="off" name="end_time" class="form-control"
+                    value="<?php echo $data['end_time']; ?>">
                 <span class="help-block">支持的实际结束时间</span>
             </div>
             <div class="form-group has-feedback">
                 <label for="work_time">总工作量(单位:小时)</label>
-                <input type="text" class="form-control" name="work_time" id="work_time" placeholder="请输入工作量"
-                    aria-describedby="work_time">
+                <input type="text" class="form-control" name="work_time" value="<?php echo $data['work_time']; ?>" id="work_time"
+                    placeholder="请输入工作量">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="work_time" class="sr-only">(success)</span>
                 <span class="help-block">支持的总工作量，包括加班工作量，一共支持的时间，格式如:10 或 3*8</span>
             </div>
             <div class="form-group">
                 <label for="name">其中加班量(单位:小时)</label>
-                <input type="text" class="form-control" name="overtime" placeholder="请输入加班量">
+                <input type="text" class="form-control" name="overtime" value="<?php echo $data['overtime']; ?>" placeholder="请输入加班量">
                 <span class="help-block">支持的加班工作量</span>
             </div>
 
             <div class="form-group">
                 <label for="status">当前状态</label>
                 <select class="form-control" name="status">
-                    <option>进行中</option>
-                    <option>已完成</option>
-                    <option>测试中止</option>
+                    <option value="进行中" <?php if($data['status']=='进行中'): ?> selected <?php endif; ?>>进行中</option>
+                    <option value="已完成" <?php if($data['status']=='完成' or $data['status']=='已完成'): ?> selected <?php endif; ?>>已完成
+                    </option>
+                    <option value="测试中止" <?php if($data['status']=='测试中止'): ?> selected <?php endif; ?>>测试中止</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="out_work_way">支持方式</label>
                 <select class="form-control" name="out_work_way">
-                    <option>市内外出支持</option>
-                    <option>市外出差支持</option>
-                    <option>远程支持</option>
+                    <option value="市内外出支持" <?php if($data['out_work_way']=='市内外出支持'): ?> selected <?php endif; ?>>市内外出支持</option>
+                    <option value="市外出差支持" <?php if($data['out_work_way']=='市外出差支持'): ?> selected <?php endif; ?>>市外出差支持</option>
+                    <option value="远程支持" <?php if($data['out_work_way']=='远程支持'): ?> selected <?php endif; ?>>远程支持</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="support_result">支持成果描述</label>
                 <textarea class="form-control" id="support_result" name="support_result"
-                    placeholder="请输入支持成果描述"></textarea>
+                    placeholder="请输入支持成果描述"><?php echo $data['support_result']; ?></textarea>
                 <span class="help-block">简要描述支持过程及结果</span>
             </div>
-
             <div class="form-group">
                 <label for="report_document">相关文档</label>
                 <textarea class="form-control" id="report_document" name="report_document"
-                    placeholder="请输入相关文档"></textarea>
+                    placeholder="请输入相关文档"><?php echo $data['report_document']; ?></textarea>
                 <span class="help-block">项目支持输出文档</span>
             </div>
             <div class="form-group">
                 <label for="doc_folder">文档存放目录</label>
-                <input type="text" class="form-control" id="doc_folder" name="doc_folder" placeholder="请输入文档存放目录">
+                <input type="text" class="form-control" id="doc_folder" value="<?php echo $data['doc_folder']; ?>" name="doc_folder"
+                    placeholder="请输入文档存放目录">
                 <span class="help-block">文档统一放在192.168.105.35上，此处填写文档保存地址，格式：\\192.168.105.35\项目资料（新）\2018\2018-02-11
                     贵州海云集约化平台性能测试项目</span>
             </div>
             <div class="form-group">
                 <label for="remarks">备注</label>
-                <textarea name="remarks" class="form-control" id="remarks" rows="5"></textarea>
+                <textarea name="remarks" class="form-control" id="remarks" rows="5"><?php echo $data['remarks']; ?></textarea>
                 <span class="help-block">其他说明</span>
             </div>
+            <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
             <button type="submit" class="btn btn-primary">提交</button>
             <a href="javascript:history.back()" class="btn btn-danger">返回</a>
         </form>
@@ -346,19 +353,18 @@
 <script>
     require(['hdjs'], function (hdjs) {
 
-
         function load_depart() {
             $('#depart').html('');
             com = $('#area').val();
-            department = "<?php echo cookie('department'); ?>";
+            department="<?php echo $data['apply_depart']; ?>";
             if (com != null) {
                 $.post('<?php echo url("store"); ?>', { com: com }, function (data) {
                     data = eval('(' + data + ')');
                     $.each(data, function (n, value) {
-                        if (value.com_name == department) {
+                        if(value.com_name==department){
                             $('<option value="' + value.com_name + '" selected>' + value.com_name + '</option>').appendTo("#depart");
                         }
-                        else {
+                        else{
                             $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
                         }
                     });
@@ -400,7 +406,8 @@
 
             });
         });
-        $('#other_support').hide();
+
+
         $('#support_type').change(function () {
             if ($("#support_type option:selected").val() == '其他') {
                 $('#other_support').show();
@@ -411,7 +418,24 @@
     })
 
 
-</script> 
+</script>
+
+
+<?php if($data['support_type'] != '性能测试' AND $data['support_type'] != '功能测试' AND $data['support_type'] != '安全测试'): ?>
+<script>
+    require(['hdjs'], function (hdjs) {
+        $('#other_support').show();
+    });
+</script>
+<?php else: ?>
+<script>
+    require(['hdjs'], function (hdjs) {
+        $('#other_support').hide();
+    }); 
+</script>
+<?php endif; ?>
+
+
 
         </main>
     </div>

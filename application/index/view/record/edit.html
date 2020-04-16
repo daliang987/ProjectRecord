@@ -29,7 +29,7 @@
             <div class="form-group has-feedback">
                 <label for="depart">申请部门</label>
                 <select class="form-control" id="depart" name="apply_depart">
-                    <option value="{$data.apply_depart}">{$data.apply_depart}</option>
+                    <option value="{$data.apply_depart}" selected>{$data.apply_depart}</option>
                 </select>
                 <span class="help-block">选择所属区域后，稍等片刻选择申请部门.</span>
             </div>
@@ -188,11 +188,17 @@
         function load_depart() {
             $('#depart').html('');
             com = $('#area').val();
+            department="{$data.apply_depart}";
             if (com != null) {
                 $.post('{:url("store")}', { com: com }, function (data) {
                     data = eval('(' + data + ')');
                     $.each(data, function (n, value) {
-                        $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
+                        if(value.com_name==department){
+                            $('<option value="' + value.com_name + '" selected>' + value.com_name + '</option>').appendTo("#depart");
+                        }
+                        else{
+                            $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
+                        }
                     });
 
                 });
