@@ -856,12 +856,35 @@ class Record extends Auth
         // work_time,overtime,out_work_way,status,support_result,report_document,doc_folder,department,remarks')->select());
         $export = $record->alias('r')->join('userinfo u', 'r.support_person=u.username')->field('r.id,project_subcompany,apply_depart,apply_person,customer_manager,
         project_manager,project_name,support_type,support_person,position,out_work_way,start_time,end_time,
-        work_time,overtime,status,support_result,report_document,doc_folder,u.department,remarks')->order('start_time', 'asc')->select();
+        work_time,overtime,status,support_result,report_document,doc_folder,u.department,remarks')->order('project_name asc','apply_person asc','support_person asc','start_time asc')->select();
         $fileHeader = array(
             '编号', '所属子公司', '申请部门', '申请人', '客户经理',
             '项目经理', '项目名称', '支持类型', '支持人', '职位', '支持方式', '实际开始时间', '实际结束时间',
             '工作量', '加班量', '完成状态', '支持成果', '报告文档', '文档所在文件夹', '支持部门', '备注'
         );
+
+
+        $newdata=[];
+        
+
+        // 格式化工作量时间为数字
+        foreach($export as $row){
+           
+            foreach($row as $column=>$value){
+                
+                if($column=="work_time" and count(explode('*',$value))==2){
+                    
+                    $num1=intval(explode('*',$value)[0]);
+                    $num2=intval(explode('*',$value)[1]);
+                    $row[$column]=strval($num1*$num2);
+                    
+                }
+            }
+
+            $newdata[]=$row;
+        }
+
+
 
 
         $tongji = array(['编号', '名称', '工作量', '支持次数', '占比']);
@@ -934,7 +957,7 @@ class Record extends Auth
             array_push($tongji, $value);
         }
 
-        $this->exportExcel($export, $tongji, '支持记录', $fileHeader, '项目支持记录');
+        $this->exportExcel($newdata, $tongji, '支持记录', $fileHeader, '项目支持记录');
     }
 
 
