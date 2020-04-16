@@ -10610,3 +10610,182 @@
 [ sql ] [ SQL ] SELECT * FROM `company` WHERE  `com_pid` = 0 [ RunTime:0.000353s ]
 [ sql ] [ SQL ] SELECT `id` FROM `company` WHERE  `com_name` = '上海分公司' LIMIT 1 [ RunTime:0.000280s ]
 [ sql ] [ SQL ] SELECT * FROM `company` WHERE  `com_pid` = 3 [ RunTime:0.000268s ]
+---------------------------------------------------------------
+[ 2020-04-16T19:03:28+08:00 ] 192.168.56.254 GET /wdl/public/index/record/store.html
+[ info ] 192.168.56.254/wdl/public/index/record/store.html [运行时间：0.046730s][吞吐率：21.40req/s] [内存消耗：3,188.25kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'store',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.56.254',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'PHPSESSID=rmrpvdh7kpf6pb5m2j7v8qta07; department=%E6%9D%AD%E5%B7%9E%E5%8A%9E%E4%BA%8B%E5%A4%84',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Record->store[ D:\xampp\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html [ array (
+  0 => '_com',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011542s ] mysql:host=localhost;port=3306;dbname=ProjectRecord;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `company` [ RunTime:0.002902s ]
+[ sql ] [ SQL ] SELECT * FROM `company` WHERE  `com_pid` = 0 [ RunTime:0.000343s ]
+---------------------------------------------------------------
+[ 2020-04-16T19:03:31+08:00 ] 192.168.56.254 GET /wdl/public/index/record/index.html
+[ info ] 192.168.56.254/wdl/public/index/record/index.html [运行时间：0.053375s][吞吐率：18.74req/s] [内存消耗：3,194.81kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.56.254',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.56.254/wdl/public/index/record/store.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'PHPSESSID=rmrpvdh7kpf6pb5m2j7v8qta07; department=%E6%9D%AD%E5%B7%9E%E5%8A%9E%E4%BA%8B%E5%A4%84',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010101s ] mysql:host=localhost;port=3306;dbname=ProjectRecord;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.012900s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `record` WHERE  `support_person` = '王大亮'  AND `delflag` = '0' LIMIT 1 [ RunTime:0.000637s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `support_person` = '王大亮'  AND `delflag` = '0' ORDER BY start_time desc LIMIT 0,20 [ RunTime:0.000870s ]
+---------------------------------------------------------------
+[ 2020-04-16T19:03:35+08:00 ] 192.168.56.254 GET /wdl/public/index/record/del.html?id=953
+[ info ] 192.168.56.254/wdl/public/index/record/del.html?id=953 [运行时间：0.054660s][吞吐率：18.29req/s] [内存消耗：3,048.57kb] [文件加载：58]
+[ info ] [ LANG ] D:\xampp\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'del',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.56.254',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.56.254/wdl/public/index/record/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'PHPSESSID=rmrpvdh7kpf6pb5m2j7v8qta07; department=%E6%9D%AD%E5%B7%9E%E5%8A%9E%E4%BA%8B%E5%A4%84',
+)
+[ info ] [ PARAM ] array (
+  'id' => '953',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Record->del[ D:\xampp\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\xampp\htdocs\wdl\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011213s ] mysql:host=localhost;port=3306;dbname=ProjectRecord;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.014590s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `id` = 953 LIMIT 1 [ RunTime:0.000667s ]
+[ sql ] [ SQL ] UPDATE `record`  SET `delflag`='1'  WHERE  `id` = 953 [ RunTime:0.001505s ]
+---------------------------------------------------------------
+[ 2020-04-16T19:03:36+08:00 ] 192.168.56.254 GET /wdl/public/index/record/index.html
+[ info ] 192.168.56.254/wdl/public/index/record/index.html [运行时间：0.043631s][吞吐率：22.92req/s] [内存消耗：3,194.74kb] [文件加载：57]
+[ info ] [ LANG ] D:\xampp\htdocs\wdl\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'record',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => '192.168.56.254',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://192.168.56.254/wdl/public/index/record/del.html?id=953',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+  'cookie' => 'PHPSESSID=rmrpvdh7kpf6pb5m2j7v8qta07; department=%E6%9D%AD%E5%B7%9E%E5%8A%9E%E4%BA%8B%E5%A4%84',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Record->index[ D:\xampp\htdocs\wdl\application\index\controller\Record.php ]
+[ info ] [ VIEW ] D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html [ array (
+  0 => 'support_person',
+  1 => '_data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010342s ] mysql:host=localhost;port=3306;dbname=ProjectRecord;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `record` [ RunTime:0.003126s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `record` WHERE  `support_person` = '王大亮'  AND `delflag` = '0' LIMIT 1 [ RunTime:0.000601s ]
+[ sql ] [ SQL ] SELECT * FROM `record` WHERE  `support_person` = '王大亮'  AND `delflag` = '0' ORDER BY start_time desc LIMIT 0,20 [ RunTime:0.000808s ]
