@@ -879,6 +879,13 @@ class Record extends Auth
                     $row[$column]=strval($num1*$num2);
                     
                 }
+                if($column=="overtime" and count(explode('*',$value))==2){
+                    
+                    $num1=intval(explode('*',$value)[0]);
+                    $num2=intval(explode('*',$value)[1]);
+                    $row[$column]=strval($num1*$num2);    
+                }
+
             }
 
             $newdata[]=$row;
@@ -945,6 +952,8 @@ class Record extends Auth
             array_push($tongji, $value);
         }
 
+
+        
 
         //支持人统计
         array_push($tongji, array('', '', '', '', ''));
