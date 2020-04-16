@@ -856,7 +856,7 @@ class Record extends Auth
         // work_time,overtime,out_work_way,status,support_result,report_document,doc_folder,department,remarks')->select());
         $export = $record->alias('r')->join('userinfo u', 'r.support_person=u.username')->field('r.id,project_subcompany,apply_depart,apply_person,customer_manager,
         project_manager,project_name,support_type,support_person,position,out_work_way,start_time,end_time,
-        work_time,overtime,status,support_result,report_document,doc_folder,u.department,remarks')->order('project_name asc','apply_person asc','support_person asc','start_time asc')->select();
+        work_time,overtime,status,support_result,report_document,doc_folder,u.department,remarks')->order('project_name asc','apply_person asc','support_person asc','start_time asc','work_time desc')->select();
         $fileHeader = array(
             '编号', '所属子公司', '申请部门', '申请人', '客户经理',
             '项目经理', '项目名称', '支持类型', '支持人', '职位', '支持方式', '实际开始时间', '实际结束时间',
