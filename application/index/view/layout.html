@@ -179,5 +179,26 @@
 <!-- Main CSS-->
 <link rel="stylesheet" type="text/css" href="__STATIC__/css/main.css">
 <script src="__STATIC__/js/main.js"></script>
+<script>
+    current_url = '{:request()->url()}';
+    console.log(current_url)
+    window.onload = function () {
+        $('.treeview-menu').find('a').each(function () {
+            console.log($(this).attr('href'));
+            if ($(this).attr('href') == current_url) {
+                $(this).parent().parent().parent().addClass('is-expanded')
+                $(this).parent().addClass('select-menu')
+            }
+        })
+    }
+</script>
+<style>
+    .select-menu {
+        border-width: 1px;
+        border-style: dotted;
+        border-color:#fff;
+        background-color:black;
+    }
+</style>
 
 </html>

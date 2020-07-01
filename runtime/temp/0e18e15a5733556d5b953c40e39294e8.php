@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1585028492;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593588685;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -396,5 +396,26 @@
 <!-- Main CSS-->
 <link rel="stylesheet" type="text/css" href="/wdl/public/static/css/main.css">
 <script src="/wdl/public/static/js/main.js"></script>
+<script>
+    current_url = '<?php echo request()->url(); ?>';
+    console.log(current_url)
+    window.onload = function () {
+        $('.treeview-menu').find('a').each(function () {
+            console.log($(this).attr('href'));
+            if ($(this).attr('href') == current_url) {
+                $(this).parent().parent().parent().addClass('is-expanded')
+                $(this).parent().addClass('select-menu')
+            }
+        })
+    }
+</script>
+<style>
+    .select-menu {
+        border-width: 1px;
+        border-style: dotted;
+        border-color:#fff;
+        background-color:black;
+    }
+</style>
 
 </html>

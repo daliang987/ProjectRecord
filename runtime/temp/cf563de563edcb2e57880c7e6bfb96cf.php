@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\wdl\public/../application/index\view\record\charts.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1585028492;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\wdl\public/../application/index\view\record\charts.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593587703;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -397,5 +397,18 @@
 <!-- Main CSS-->
 <link rel="stylesheet" type="text/css" href="/wdl/public/static/css/main.css">
 <script src="/wdl/public/static/js/main.js"></script>
+<script>
+    current_url = '<?php echo request()->url(); ?>';
+    console.log(current_url)
+    window.onload = function () {
+        $('.treeview-menu').find('a').each(function () {
+            console.log($(this).attr('href'));
+            if ($(this).attr('href') == current_url) {
+                $(this).parent().parent().parent().addClass('is-expanded')
+                $(this).css('border','1px dotted #009986')
+            }
+        })
+    }
+</script>
 
 </html>
