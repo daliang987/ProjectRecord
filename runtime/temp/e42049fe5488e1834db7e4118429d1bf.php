@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\wdl\public/../application/index\view\record\person.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593587703;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\wdl\public/../application/index\view\record\person.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -115,7 +115,7 @@
                 </li>
                 <li class="treeview">
                     <a class="app-menu__item" href="javascript:void(0)" data-toggle="treeview">
-                        <i class="app-menu__icon fa fa-edit"></i>
+                        <i class="app-menu__icon fa fa-id-card-o"></i>
                         <span class="app-menu__label">人员管理</span>
                         <i class="treeview-indicator fa fa-angle-right"></i>
                     </a>
@@ -336,10 +336,18 @@
             console.log($(this).attr('href'));
             if ($(this).attr('href') == current_url) {
                 $(this).parent().parent().parent().addClass('is-expanded')
-                $(this).css('border','1px dotted #009986')
+                $(this).parent().addClass('select-menu')
             }
         })
     }
 </script>
+<style>
+    .select-menu {
+        border-width: 1px;
+        border-style: dotted;
+        border-color:#fff;
+        background-color:black;
+    }
+</style>
 
 </html>
