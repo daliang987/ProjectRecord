@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593588685;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -115,7 +115,7 @@
                 </li>
                 <li class="treeview">
                     <a class="app-menu__item" href="javascript:void(0)" data-toggle="treeview">
-                        <i class="app-menu__icon fa fa-edit"></i>
+                        <i class="app-menu__icon fa fa-id-card-o"></i>
                         <span class="app-menu__label">人员管理</span>
                         <i class="treeview-indicator fa fa-angle-right"></i>
                     </a>
