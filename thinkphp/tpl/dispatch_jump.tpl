@@ -20,13 +20,13 @@
         <?php switch ($code) {?>
             <?php case 1:?>
 
-            <img src="__STATIC__/image/xiao.jpg" width="300">
+            <img src="__STATIC__/image/xiao.jpg" width="150">
             <hr>
             <p class="success"><?php echo(strip_tags($msg));?></p>
             <?php break;?>
             <?php case 0:?>
 
-            <img src="__STATIC__/image/ku.jpg" width="300">
+            <img src="__STATIC__/image/ku.jpg" width="150">
             <hr>
             <p class="error"><?php echo(strip_tags($msg));?></p>
             <?php break;?>
