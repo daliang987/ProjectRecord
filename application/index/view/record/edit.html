@@ -2,7 +2,8 @@
 <div class="app-title">
     <div>
         <h1>
-            <i class="fa fa-dashboard"></i> 添加记录 </h1>
+            <i class="fa fa-dashboard"></i> 添加记录
+        </h1>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item">
@@ -59,7 +60,7 @@
                     name="project_name" placeholder="请输入项目名称">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="project_name" class="sr-only">(success)</span>
-                <span class="help-block">请填写项目标准名称.</span>
+                <span class="text-danger">请填写项目标准名称 格式：单位+项目名称 如：新疆日报社石榴云平台项目</span>
             </div>
             <div class="form-group">
                 <label for="support_type">支持内容</label>
@@ -167,7 +168,7 @@
                 <label for="doc_folder">文档存放目录</label>
                 <input type="text" class="form-control" id="doc_folder" value="{$data.doc_folder}" name="doc_folder"
                     placeholder="请输入文档存放目录">
-                <span class="help-block">文档统一放在192.168.105.35上，此处填写文档保存地址，格式：\\192.168.105.35\项目资料（新）\2018\2018-02-11
+                <span class="text-info">文档统一放在192.168.105.35上，此处填写文档保存地址，格式：\\192.168.105.35\项目资料（新）\2018\2018-02-11
                     贵州海云集约化平台性能测试项目</span>
             </div>
             <div class="form-group">
@@ -188,15 +189,15 @@
         function load_depart() {
             $('#depart').html('');
             com = $('#area').val();
-            department="{$data.apply_depart}";
+            department = "{$data.apply_depart}";
             if (com != null) {
                 $.post('{:url("store")}', { com: com }, function (data) {
                     data = eval('(' + data + ')');
                     $.each(data, function (n, value) {
-                        if(value.com_name==department){
+                        if (value.com_name == department) {
                             $('<option value="' + value.com_name + '" selected>' + value.com_name + '</option>').appendTo("#depart");
                         }
-                        else{
+                        else {
                             $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
                         }
                     });
@@ -263,7 +264,7 @@
 <script>
     require(['hdjs'], function (hdjs) {
         $('#other_support').hide();
-    }); 
+    });
 </script>
 {/if}
 

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html";i:1587034830;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html";i:1626858678;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -231,7 +231,7 @@
                     aria-describedby="project_name">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="project_name" class="sr-only">(success)</span>
-                <span class="help-block">请填写项目标准名称.</span>
+                <span class="text-danger">请填写项目标准名称 格式：单位+项目名称 如：新疆日报社石榴云平台项目</span>
             </div>
             <div class="form-group">
                 <label for="support_type">支持内容</label>
@@ -329,7 +329,7 @@
             <div class="form-group">
                 <label for="doc_folder">文档存放目录</label>
                 <input type="text" class="form-control" id="doc_folder" name="doc_folder" placeholder="请输入文档存放目录">
-                <span class="help-block">文档统一放在192.168.105.35上，此处填写文档保存地址，格式：\\192.168.105.35\项目资料（新）\2018\2018-02-11
+                <span class="text-info">文档统一放在192.168.105.35上，此处填写文档保存地址，格式：\\192.168.105.35\项目资料（新）\2018\2018-02-11
                     贵州海云集约化平台性能测试项目</span>
             </div>
             <div class="form-group">

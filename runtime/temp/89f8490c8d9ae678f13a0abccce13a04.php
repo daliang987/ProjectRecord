@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\xampp\htdocs\wdl\public/../application/index\view\record\edit.html";i:1587033957;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\xampp\htdocs\wdl\public/../application/index\view\record\edit.html";i:1626858461;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -231,7 +231,7 @@
                     name="project_name" placeholder="请输入项目名称">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="project_name" class="sr-only">(success)</span>
-                <span class="help-block">请填写项目标准名称.</span>
+                <span class="text-danger">请填写项目标准名称 格式：单位+项目名称 如：新疆日报社石榴云平台项目</span>
             </div>
             <div class="form-group">
                 <label for="support_type">支持内容</label>
