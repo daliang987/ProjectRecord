@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:50:"D:\xampp\htdocs\wdl\thinkphp\tpl\dispatch_jump.tpl";i:1585028492;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:50:"D:\xampp\htdocs\wdl\thinkphp\tpl\dispatch_jump.tpl";i:1625715354;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,12 +20,12 @@
     <div class="system-message">
         <?php switch ($code) {case 1:?>
 
-            <img src="/wdl/public/static/image/xiao.jpg" width="300">
+            <img src="/wdl/public/static/image/xiao.jpg" width="150">
             <hr>
             <p class="success"><?php echo(strip_tags($msg));?></p>
             <?php break;case 0:?>
 
-            <img src="/wdl/public/static/image/ku.jpg" width="300">
+            <img src="/wdl/public/static/image/ku.jpg" width="150">
             <hr>
             <p class="error"><?php echo(strip_tags($msg));?></p>
             <?php break;} ?>
