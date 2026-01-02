@@ -70,5 +70,15 @@ class User extends Admin{
         }
     }
 
+    public function start_user(){
+        $id=input('get.id');
+        $res=$this->db->start_user($id);
+        if($res['valid']){
+            $this->success($res['msg'],'index');exit;
+        }else{
+            $this->error($res['msg']);exit;
+        }
+    }
+
     
 }

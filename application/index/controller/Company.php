@@ -22,7 +22,7 @@ class Company extends Admin{
             $pageParam['query']['com_name']=$com_name;
         }
 
-        $company=$allcom->alias('a')->join('company c','a.com_pid=c.id','left')->field('a.id,c.id as cid,c.com_name as parent_name,a.com_name')->paginate(15,false,$pageParam);
+        $company=$allcom->alias('a')->join('company c','a.com_pid=c.id','left')->field('a.id,c.id as cid,c.com_name as parent_name,a.com_name,a.com_pid')->order('com_pid asc,parent_name asc,id asc')->paginate(15,false,$pageParam);
         $this->assign("_company",$company);
         return $this->fetch();
     }

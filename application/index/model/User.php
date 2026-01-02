@@ -49,4 +49,13 @@ class User extends Model{
             return ['valid'=>0,'msg'=>'原密码不正确'];
         }
     }
+
+    public function start_user($id){
+        $result=$this->save(['forbidden'=>0],['id'=>$id]);
+        if($result){
+            return ['valid'=>1,'msg'=>'用户启用成功'];
+        }else{
+            return ['valid'=>0,'msg'=>$this->getError()];
+        }
+    }
 }

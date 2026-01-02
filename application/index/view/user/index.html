@@ -65,7 +65,11 @@
 
                                 <li class="divider"></li>
                                 <li>
+                                    {if condition="$user.forbidden eq '1'"}
+                                    <a href="javascript:startUser({$user.id})">启用</a>
+                                    {else /}
                                     <a href="javascript:forbidden({$user.id})">禁用</a>
+                                    {/if}
                                 </li>
                             </ul>
                         </div>
@@ -83,6 +87,13 @@
         require(['hdjs'], function (hdjs) {
             hdjs.confirm('确定禁用吗?', function () {
                 location.href = "{:url('forbidden')}" + "?id=" + id;
+            });
+        });
+    }
+    function startUser(id) {
+        require(['hdjs'], function (hdjs) {
+            hdjs.confirm('确定启用吗?', function () {
+                location.href = "{:url('start_user')}" + "?id=" + id;
             });
         });
     }

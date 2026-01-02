@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html";i:1690280798;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\store.html";i:1767370521;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -174,7 +174,8 @@
 <div class="app-title">
     <div>
         <h1>
-            <i class="fa fa-dashboard"></i> 添加记录 </h1>
+            <i class="fa fa-dashboard"></i> 添加记录
+        </h1>
     </div>
     <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item">
@@ -277,10 +278,10 @@
                 <span id="date_timepicker_start" class="sr-only">(success)</span>
                 <span class="help-block">支持的实际开始时间</span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="time_end_form_group">
                 <label for="date_timepicker_end">实际结束时间</label>
                 <input id="date_timepicker_end" autocomplete="off" name="end_time" class="form-control" value="">
-                <span class="help-block">支持的实际结束时间</span>
+                <span class="help-block">支持的实际结束时间 <span id="time_tip">&nbsp;</span></span>
             </div>
             <div class="form-group has-feedback">
                 <label for="work_time">总工作量(单位:小时)</label>
@@ -329,7 +330,7 @@
             <div class="form-group">
                 <label for="doc_folder">文档存放目录</label>
                 <input type="text" class="form-control" id="doc_folder" name="doc_folder" placeholder="请输入文档存放目录">
-                <span class="text-info">文档统一放在192.168.157.73上，此处填写文档保存地址，格式：\\192.168.157.73\项目资料（新）\2018\2018-02-11
+                <span class="text-info">文档统一放在192.168.152.90上，此处填写文档保存地址，格式：\\192.168.152.90\项目资料（新）\2018\2018-02-11
                     贵州海云集约化平台性能测试项目</span>
             </div>
             <div class="form-group">
@@ -386,6 +387,57 @@
                 })
             },
             timepicker: false
+        });
+
+        function checkDate(start, end) {
+            var startDate = new Date(start.replace(/-/g, "/"));
+            var endDate = new Date(end.replace(/-/g, "/"));
+
+            if (startDate > endDate) {
+                $('#time_end_form_group').addClass('has-error');
+                $('#time_tip').text('不能小于开始时间');
+            }
+            else {
+                // 不能跨季度提交，开始时间如果小于3-31，结束时间不能大于3-31
+                if (startDate < new Date(startDate.getFullYear() + "/4/1") && endDate > new Date(startDate.getFullYear() + "/3/31")) {
+                    $('#time_end_form_group').addClass('has-error');
+                    $('#time_tip').text('不能跨季度提交，请重新选择结束时间');
+                }
+                //开始时间如果小于6-30，结束时间不能大于6-30
+                else if (startDate < new Date(startDate.getFullYear() + "/7/1") && endDate > new Date(startDate.getFullYear() + "/6/30")) {
+                    $('#time_end_form_group').addClass('has-error');    
+                    $('#time_tip').text('不能跨季度提交，请重新选择结束时间');
+                }
+                //开始时间如果小于9-30，结束时间不能大于9-30
+                else if (startDate < new Date(startDate.getFullYear() + "/10/1") && endDate > new Date(startDate.getFullYear() + "/9/30")) {
+                    $('#time_end_form_group').addClass('has-error');
+                    $('#time_tip').text('不能跨季度提交，请重新选择结束时间');
+                }
+                //开始时间如果小于12-31，结束时间不能大于12-31
+                else if (startDate < new Date((startDate.getFullYear() + 1) + "/1/1") && endDate > new Date(startDate.getFullYear() + "/12/31")) {
+                    $('#time_end_form_group').addClass('has-error');
+                    $('#time_tip').text('不能跨年提交，请重新选择结束时间');
+                }
+                else {
+                    $('#time_end_form_group').removeClass('has-error');
+                    $('#time_tip').text('');
+                }
+            }
+        }
+
+        $('#date_timepicker_end').blur(function () {
+            start = $('#date_timepicker_start').val();
+            end = $('#date_timepicker_end').val();
+            if (start != '' && end != '') {
+                checkDate(start, end);
+            }
+        });
+        $('#date_timepicker_start').blur(function () {
+            start = $('#date_timepicker_start').val();
+            end = $('#date_timepicker_end').val();
+            if (start != '' && end != '') {
+                checkDate(start, end);
+            }
         });
 
         $('#area').change(function () {
