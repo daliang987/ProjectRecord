@@ -114,11 +114,11 @@
                 <span id="date_timepicker_start" class="sr-only">(success)</span>
                 <span class="help-block">支持的实际开始时间</span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="time_end_form_group">
                 <label for="date_timepicker_end">实际结束时间</label>
                 <input id="date_timepicker_end" autocomplete="off" name="end_time" class="form-control"
                     value="{$data.end_time}">
-                <span class="help-block">支持的实际结束时间</span>
+                 <span class="help-block">支持的实际结束时间 <span id="time_tip">&nbsp;</span></span>
             </div>
             <div class="form-group has-feedback">
                 <label for="work_time">总工作量(单位:小时)</label>
