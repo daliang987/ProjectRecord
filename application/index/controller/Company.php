@@ -48,13 +48,15 @@ class Company extends Admin{
         $this->assign('company',$data);
         $parent=db('company')->where('com_pid',0)->select();
         $this->assign('_parent',$parent);
+        $page=input('param.page')?input('param.page'):1;
+        $this->assign('page',$page);
 
         if(request()->isPost()){
             $data=input('post.');
-            
+            $page = $data['page']?$data['page']:1;
             $res=$this->db->edit($data);
             if($res['valid']){
-                $this->success($res['msg'],'index');exit;
+                $this->success($res['msg'],url('index')."?page=".$page);exit;
             }else{
                 $this->error($res['msg']);exit;
             }

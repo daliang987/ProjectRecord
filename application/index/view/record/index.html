@@ -107,7 +107,7 @@
                 <tr>
                     <td>{$data.id}</td>
                     <td>
-                        <a href="{:url('index/record/show',['id'=>$data.id])}">{$data.project_name}</td>
+                        <a href="{:url('index/record/show',['page'=>request()->param('page'),'id'=>$data.id])}">{$data.project_name}</td>
                     </a>
                     <td>{$data.project_subcompany}</td>
                     <td>{$data.apply_person}</td>
@@ -129,7 +129,7 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{:url('index/record/edit',['id'=>$data.id])}">修改</a>
+                                    <a href="{:url('index/record/edit',['from'=>'list','page'=>request()->param('page'),'id'=>$data.id])}">修改</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>

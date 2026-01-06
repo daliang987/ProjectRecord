@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\xampp\htdocs\wdl\public/../application/index\view\record\show.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1585028492;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:69:"D:\xampp\htdocs\wdl\public/../application/index\view\record\show.html";i:1767694547;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -115,7 +115,7 @@
                 </li>
                 <li class="treeview">
                     <a class="app-menu__item" href="javascript:void(0)" data-toggle="treeview">
-                        <i class="app-menu__icon fa fa-edit"></i>
+                        <i class="app-menu__icon fa fa-id-card-o"></i>
                         <span class="app-menu__label">人员管理</span>
                         <i class="treeview-indicator fa fa-angle-right"></i>
                     </a>
@@ -281,7 +281,7 @@
                     <?php if($_data['delflag']==0): ?>
                     <span class="pull-left">
                         
-                        <a href="<?php echo url('index/record/edit',['id'=>$_data['id']]); ?>" class="btn btn-primary">修改记录</a>
+                        <a href="<?php echo url('index/record/edit',['page'=>$page,'id'=>$_data['id']]); ?>" class="btn btn-primary">修改记录</a>
                     </span>
                     &nbsp;&nbsp;&nbsp;
                     <?php endif; ?>
@@ -303,5 +303,26 @@
 <!-- Main CSS-->
 <link rel="stylesheet" type="text/css" href="/wdl/public/static/css/main.css">
 <script src="/wdl/public/static/js/main.js"></script>
+<script>
+    current_url = '<?php echo request()->url(); ?>';
+    console.log(current_url)
+    window.onload = function () {
+        $('.treeview-menu').find('a').each(function () {
+            console.log($(this).attr('href'));
+            if ($(this).attr('href') == current_url) {
+                $(this).parent().parent().parent().addClass('is-expanded')
+                $(this).parent().addClass('select-menu')
+            }
+        })
+    }
+</script>
+<style>
+    .select-menu {
+        border-width: 1px;
+        border-style: dotted;
+        border-color:#fff;
+        background-color:black;
+    }
+</style>
 
 </html>

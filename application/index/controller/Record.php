@@ -396,6 +396,8 @@ class Record extends Auth
     {
         $id = input('param.id');
         $data = db('record')->find($id);
+        $page = input('param.page')?input('param.page') : 1;
+        $this->assign('page', $page);
         if ($data && ($data['support_person'] == session('username') || session('isadmin'))) {
             $this->assign('_data', $data);
             $user = db('userinfo')->where('username', $data['support_person'])->find();
@@ -486,6 +488,10 @@ class Record extends Auth
         $data = db('record')->find($id);
         $com = db('company')->where('com_pid', 0)->select();
         $this->assign("_com", $com);
+        $page=input('param.page');
+        $this->assign('page',$page);
+        $from=input('param.from');
+        $this->assign('from',$from);
 
         if ($data && ($data['support_person'] == session('username') || session('isadmin'))) {
             $this->assign('data', $data);
@@ -496,6 +502,8 @@ class Record extends Auth
 
         if (request()->isPost()) {
             $data = input('post.');
+            $page = $data['page']?$data['page']:1;
+            $from = $data['from']?$data['from']:'list';
             $record = db('record')->find($data['id']);
             if ($record && ($record['support_person'] == session('username') || session('isadmin'))) {
                 if ($data['support_type'] == '其他') {
@@ -508,7 +516,11 @@ class Record extends Auth
 
                 $res = $this->db->edit($data);
                 if ($res['valid']) {
-                    $this->success($res['msg'], 'index');
+                    if ($from == 'list') {
+                        $this->success($res['msg'], url('index') . "?page=" . $page);
+                    } else {
+                        $this->success($res['msg'], url('search') . "?page=" . $page);
+                    }
                 } else {
                     $this->error($res['msg']);
                     exit;

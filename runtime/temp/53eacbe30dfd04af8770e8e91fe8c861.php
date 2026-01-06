@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\wdl\public/../application/index\view\record\search.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"D:\xampp\htdocs\wdl\public/../application/index\view\record\search.html";i:1767693981;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -316,7 +316,7 @@
         <?php if(is_array($record) || $record instanceof \think\Collection || $record instanceof \think\Paginator): $i = 0; $__LIST__ = $record;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$r): $mod = ($i % 2 );++$i;?>
         <tr>
             <td><a href="javascript:del(<?php echo $r['id']; ?>)">删除</a></td>
-            <td><a href="<?php echo url('index/record/edit',['id'=>$r['id']]); ?>"><?php echo $r['id']; ?></a></td>
+            <td><a href="<?php echo url('index/record/edit',['from'=>'search','page'=>request()->param('page'),'id'=>$r['id']]); ?>"><?php echo $r['id']; ?></a></td>
             <td><?php echo $r['project_subcompany']; ?></td>
             <td><?php echo $r['apply_depart']; ?></td>
             <td><?php echo $r['apply_person']; ?></td>

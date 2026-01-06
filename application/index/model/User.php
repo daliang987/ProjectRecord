@@ -5,6 +5,7 @@ use think\Model;
 class User extends Model{
     protected $table="userinfo";
     protected $pk="id";
+    protected $field=true;
 
     public function edit($data){
 

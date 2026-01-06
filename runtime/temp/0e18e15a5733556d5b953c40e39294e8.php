@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html";i:1585028492;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:70:"D:\xampp\htdocs\wdl\public/../application/index\view\record\index.html";i:1767694598;s:54:"D:\xampp\htdocs\wdl\application\index\view\layout.html";i:1593596695;}*/ ?>
 <!DOCTYPE html>
 <html lang="cn">
 
@@ -276,7 +276,7 @@
                 <tr>
                     <td><?php echo $data['id']; ?></td>
                     <td>
-                        <a href="<?php echo url('index/record/show',['id'=>$data['id']]); ?>"><?php echo $data['project_name']; ?></td>
+                        <a href="<?php echo url('index/record/show',['page'=>request()->param('page'),'id'=>$data['id']]); ?>"><?php echo $data['project_name']; ?></td>
                     </a>
                     <td><?php echo $data['project_subcompany']; ?></td>
                     <td><?php echo $data['apply_person']; ?></td>
@@ -297,7 +297,7 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="<?php echo url('index/record/edit',['id'=>$data['id']]); ?>">修改</a>
+                                    <a href="<?php echo url('index/record/edit',['from'=>'list','page'=>request()->param('page'),'id'=>$data['id']]); ?>">修改</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>

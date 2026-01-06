@@ -144,7 +144,7 @@
         {volist name="record" id="r"}
         <tr>
             <td><a href="javascript:del({$r.id})">删除</a></td>
-            <td><a href="{:url('index/record/edit',['id'=>$r.id])}">{$r.id}</a></td>
+            <td><a href="{:url('index/record/edit',['from'=>'search','page'=>request()->param('page'),'id'=>$r.id])}">{$r.id}</a></td>
             <td>{$r.project_subcompany}</td>
             <td>{$r.apply_depart}</td>
             <td>{$r.apply_person}</td>

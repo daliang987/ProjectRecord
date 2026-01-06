@@ -6,6 +6,7 @@ use vendor\PHPExcel\PHPExcel;
 class Record extends Model{
     protected $table="record";
     protected $pk="id";
+    protected $field=true;
 
     public function del($id){
 

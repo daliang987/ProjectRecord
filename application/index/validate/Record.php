@@ -55,9 +55,11 @@ class Record extends Validate
             $end_month = intval(date('n', $end_date));
             // halt($start_month_day < $date1);
             if ($start_month <= 3 &&  $end_month > 3) {
-                return '开始时间与结束时间不能跨关键季度日期（3-31）,请分开填写';
+                return '开始时间-结束时间 不能跨关键季度日期（3-31）,请分开填写';
+            } else if ($start_month <= 6 &&  $end_month > 6) {
+                return '开始时间-结束时间不能跨关键季度日期（6-30）,请分开填写';
             } else if ($start_month <= 9 &&  $end_month > 9) {
-                return '开始时间与结束时间不能跨关键季度日期（9-30）,请分开填写';
+                return '开始时间-结束时间不能跨关键季度日期（9-30）,请分开填写';
             } else {
                 return true;
             }

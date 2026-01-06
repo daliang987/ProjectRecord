@@ -6,6 +6,7 @@ class Company extends Model{
 
     protected $table="company";
     protected $pk="id";
+    protected $field=true;
 
     public function store($data){
         $res=$this->validate(true)->save($data);
