@@ -410,7 +410,7 @@ class Record extends Auth
 
     public function trash()
     {
-        $data = db('record')->where('delflag', 1)->where('support_person', session('username'))->order('start_time desc')->paginate(10);
+        $data = db('record')->where('delflag', 1)->where('support_person', session('username'))->order('start_time desc')->paginate(2);
         $this->assign('_data', $data);
         return $this->fetch();
     }
@@ -427,18 +427,21 @@ class Record extends Auth
     {
         $id = input('get.id');
         $record = db('record')->find($id);
+        $page = input('get.page')?input('get.page') : 1;
+        $from= input('get.from')?input('get.from') : 'list';
         if ($record && ($record['support_person'] == session('username') || session('isadmin'))) {
             $res = $this->db->del($id);
             if ($res['valid']) {
-                $this->success($res['msg'], 'index');
-                exit;
+                if($from=='search'){
+                    $this->success($res['msg'], url('search')."?page=".$page);
+                }else{
+                    $this->success($res['msg'], url('index')."?page=".$page);
+                }
             } else {
-                $this->error($res['msg'], 'index');
-                exit;
+                 $this->error($res['msg']);
             }
         } else {
             $this->error('没有权限删除该记录');
-            exit;
         }
     }
 
@@ -447,17 +450,16 @@ class Record extends Auth
     {
         $id = input('get.id');
         $record = db('record')->find($id);
+        $page = input('get.page')?input('get.page') : 1;
         if ($record && $record['support_person'] != session('username')) {
             $this->error('没有权限还原该记录');
             exit;
         }
         $res = $this->db->restore($id);
         if ($res['valid']) {
-            $this->success($res['msg'], 'index');
-            exit;
+            $this->success($res['msg'], url('trash')."?page=".$page);
         } else {
-            $this->error($res['msg'], 'index');
-            exit;
+            $this->error($res['msg']);
         }
     }
 
@@ -466,14 +468,18 @@ class Record extends Auth
     {
         $id = input('get.id');
         $record = db('record')->find($id);
+        $page = input('get.page')?input('get.page') : 1;
+        $admintrash = input('get.admintrash')?input('get.admintrash') : 0;
         if ($record && ($record['support_person'] == session('username') || session('isadmin'))) {
             $res = $this->db->remove($id);
             if ($res['valid']) {
-                $this->success($res['msg'], 'index');
-                exit;
+                if($admintrash){
+                    $this->success($res['msg'], url('admintrash')."?page=".$page);
+                }else{
+                    $this->success($res['msg'], url('trash')."?page=".$page);
+                }
             } else {
-                $this->error($res['msg'], 'index');
-                exit;
+                $this->error($res['msg']);
             }
         } else {
             $this->error('没有权限彻底删除该记录');
@@ -523,7 +529,6 @@ class Record extends Auth
                     }
                 } else {
                     $this->error($res['msg']);
-                    exit;
                 }
             } else {
                 $this->error('非法修改');

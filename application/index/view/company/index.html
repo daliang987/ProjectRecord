@@ -61,7 +61,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="javascript:del({$company.id})">删除</a>
+                                    <a href="javascript:del({$company.id},{$Request.param.page|default=1})">删除</a>
                                 </li>
                             </ul>
                         </div>
@@ -75,10 +75,10 @@
 </div>
 
 <script>
-    function del(id) {
+    function del(id,page) {
         require(['hdjs'], function (hdjs) {
             hdjs.confirm('确定删除吗?', function () {
-                location.href = "{:url('del')}" + "?id=" + id;
+                location.href = "{:url('del')}" + "?id=" + id+"&page="+page;
             })
         });
     }

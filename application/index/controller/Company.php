@@ -34,9 +34,9 @@ class Company extends Admin{
             $data=input('post.');
             $res=$this->db->store($data);
             if($res['valid']){
-                $this->success($res['msg'],'index');exit;
+                $this->success($res['msg'],'index');
             }else{
-                $this->error($res['msg']);exit;
+                $this->error($res['msg']);
             }
         }
         return $this->fetch();
@@ -56,9 +56,9 @@ class Company extends Admin{
             $page = $data['page']?$data['page']:1;
             $res=$this->db->edit($data);
             if($res['valid']){
-                $this->success($res['msg'],url('index')."?page=".$page);exit;
+                $this->success($res['msg'],url('index')."?page=".$page);
             }else{
-                $this->error($res['msg']);exit;
+                $this->error($res['msg']);
             }
         }
 
@@ -67,11 +67,12 @@ class Company extends Admin{
 
     public function del(){
        $id=input('get.id');
+       $page=input('get.page')?input('get.page'):1;
        $res=$this->db->del($id);
        if($res['valid']){
-           $this->success($res['msg'],'index');
+           $this->success($res['msg'],url('index')."?page=".$page);
        } else{
-           $this->error($res['msg'],'index');
+           $this->error($res['msg']);
        }
     }
 }

@@ -143,7 +143,7 @@
         </tr>
         {volist name="record" id="r"}
         <tr>
-            <td><a href="javascript:del({$r.id})">删除</a></td>
+            <td><a href="javascript:del({$r.id},{$Request.param.page|default=1})">删除</a></td>
             <td><a href="{:url('index/record/edit',['from'=>'search','page'=>request()->param('page'),'id'=>$r.id])}">{$r.id}</a></td>
             <td>{$r.project_subcompany}</td>
             <td>{$r.apply_depart}</td>
@@ -243,10 +243,10 @@
         })
 
     });
-    function del(id) {
+    function del(id,page) {
         require(['hdjs'], function (hdjs) {
             hdjs.confirm('确定删除吗?', function () {
-                location.href="{:url('del')}"+"?id="+id;
+                location.href="{:url('del')}"+"?id="+id+"&page="+page+"&from=search";
             })
         });
     }

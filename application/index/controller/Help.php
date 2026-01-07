@@ -25,7 +25,7 @@ class Help extends Controller{
             if($res['valid']){
                 $this->success($res['msg']);exit;
             }else{
-                $this->error($res['msg']);exit;
+                $this->error($res['msg']);
             }
         }
 
@@ -43,7 +43,7 @@ class Help extends Controller{
             if($res['valid']){
                 $this->success($res['msg']);exit;
             }else{
-                $this->error($res['msg']);exit;
+                $this->error($res['msg']);
             }
         }else{
             $this->error('你没有权限删除该评论');

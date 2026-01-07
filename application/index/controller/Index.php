@@ -78,7 +78,7 @@ class Index extends Controller
             if($res['valid']){
                 $this->success($res['msg']);exit;
             }else{
-                $this->error($res['msg']);exit;
+                $this->error($res['msg']);
             }
         }
 

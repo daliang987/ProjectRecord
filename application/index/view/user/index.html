@@ -66,9 +66,9 @@
                                 <li class="divider"></li>
                                 <li>
                                     {if condition="$user.forbidden eq '1'"}
-                                    <a href="javascript:startUser({$user.id})">启用</a>
+                                    <a href="javascript:startUser({$user.id},{$Request.param.page|default=1})">启用</a>
                                     {else /}
-                                    <a href="javascript:forbidden({$user.id})">禁用</a>
+                                    <a href="javascript:forbidden({$user.id},{$Request.param.page|default=1})">禁用</a>
                                     {/if}
                                 </li>
                             </ul>
@@ -83,17 +83,17 @@
 </div>
 
 <script>
-    function forbidden(id) {
+    function forbidden(id,page) {
         require(['hdjs'], function (hdjs) {
             hdjs.confirm('确定禁用吗?', function () {
-                location.href = "{:url('forbidden')}" + "?id=" + id;
+                location.href = "{:url('forbidden')}" + "?id=" + id+"&page="+page;
             });
         });
     }
-    function startUser(id) {
+    function startUser(id,page) {
         require(['hdjs'], function (hdjs) {
             hdjs.confirm('确定启用吗?', function () {
-                location.href = "{:url('start_user')}" + "?id=" + id;
+                location.href = "{:url('start_user')}" + "?id=" + id+"&page="+page;
             });
         });
     }

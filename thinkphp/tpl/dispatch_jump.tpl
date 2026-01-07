@@ -28,8 +28,9 @@
                          "Helvetica Neue", Helvetica, Arial, sans-serif;
             background: linear-gradient(135deg, #e6f2f1, #f9fbfb);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
+            padding-top: 10%;
             color: var(--text);
         }
 
@@ -137,7 +138,7 @@
         <div class="icon">!</div>
         <div class="title">操作失败</div>
         <div class="msg"><?php echo strip_tags($msg); ?></div>
-        <div class="jump">、
+        <div class="jump">
             页面将在 <b id="wait"><?php echo $wait; ?></b> 秒后自动
             <a id="href" href="<?php echo $url; ?>">返回</a>
         </div>

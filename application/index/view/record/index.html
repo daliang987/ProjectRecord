@@ -97,6 +97,7 @@
                     <th>支持人</th>
                     <th>支持类型</th>
                     <th>开始时间</th>
+                    <th>结束时间</th>
                     <th>工作量</th>
                     <th>完成状态</th>
                     <th>操作</th>
@@ -114,6 +115,7 @@
                     <td>{$data.support_person}</td>
                     <td>{$data.support_type}</td>
                     <td>{$data.start_time}</td>
+                    <td>{$data.end_time}</td>
                     <td>{$data.work_time}</td>
                     <td>
                         {if condition="$data.status neq '已完成'"}
@@ -133,7 +135,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="javascript:del({$data.id})">删除</a>
+                                    <a href="javascript:del({$data.id},{$Request.param.page|default=1})">删除</a>
                                 </li>
                             </ul>
                         </div>
@@ -148,10 +150,10 @@
 
 
 <script>
-    function del(id) {
+    function del(id,page) {
         require(['hdjs'], function (hdjs) {
             hdjs.confirm('确定删除吗?', function () {
-                location.href = "{:url('del')}" + "?id=" + id;
+                location.href = "{:url('del')}" + "?id=" + id+"&page="+page + "&from=list";
             })
         });
     }

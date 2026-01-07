@@ -51,11 +51,11 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="javascript:restore({$data.id})">还原记录</a>
+                                    <a href="javascript:restore({$data.id},{$Request.param.page|default=1})">还原记录</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="javascript:remove({$data.id})">彻底删除</a>
+                                    <a href="javascript:remove({$data.id},{$Request.param.page|default=1})">彻底删除</a>
                                 </li>
                             </ul>
                         </div>
@@ -68,18 +68,18 @@
     </div>
 </div>
 <script>
-    function restore(id) {
+    function restore(id,page) {
         require(['hdjs'], function (hdjs) {
             hdjs.confirm('确定还原该记录吗?', function () {
-                location.href = "{:url('restore')}" + "?id=" + id;
+                location.href = "{:url('restore')}" + "?id=" + id+"&page="+page;
             });
         });
     }
 
-    function remove(id){
+    function remove(id,page){
         require(['hdjs'],function(hdjs){
             hdjs.confirm('确定彻底删除该记录吗?',function(){
-                location.href="{:url('remove')}"+"?id="+id;
+                location.href="{:url('remove')}"+"?id="+id+"&page="+page;
             });
         });
     }

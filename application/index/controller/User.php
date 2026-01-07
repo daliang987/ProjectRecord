@@ -32,9 +32,9 @@ class User extends Admin{
             $data=input('post.');
             $res=$this->db->store($data);
             if($res['valid']){
-                $this->success($res['msg'],'index');exit;
+                $this->success($res['msg'],'index');
             }else{
-                $this->error($res['msg']);exit;
+                $this->error($res['msg']);
             }
         }
 
@@ -53,9 +53,9 @@ class User extends Admin{
             $page=$data['page']?$data['page']:1;
             $res=$this->db->edit($data);
             if($res['valid']){
-                $this->success($res['msg'],url('index') . "?page=" . $page);exit;
+                $this->success($res['msg'],url('index') . "?page=" . $page);
             }else{
-                $this->error($res['msg']);exit;
+                $this->error($res['msg']);
             }
         }
 
@@ -65,21 +65,23 @@ class User extends Admin{
 
     public function forbidden(){
         $id=input('get.id');
+        $page=input('get.page')?input('get.page'):1;
         $res=$this->db->forbidden($id);
         if($res['valid']){
-            $this->success($res['msg'],'index');exit;
+            $this->success($res['msg'],url('index') . "?page=" . $page);
         }else{
-            $this->error($res['msg']);exit;
+            $this->error($res['msg']);
         }
     }
 
     public function start_user(){
         $id=input('get.id');
+        $page=input('get.page')?input('get.page'):1;
         $res=$this->db->start_user($id);
         if($res['valid']){
-            $this->success($res['msg'],'index');exit;
+            $this->success($res['msg'],url('index') . "?page=" . $page);
         }else{
-            $this->error($res['msg']);exit;
+            $this->error($res['msg']);
         }
     }
 
