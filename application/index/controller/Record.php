@@ -108,7 +108,8 @@ class Record extends Auth
 
         if (request()->isPost()) {
             $data = input('post.');
-            cookie('department',input('post.apply_depart'));
+            // 利用cookie记录部门，后续提交时，如果验证失败，则可以记住部门，从而恢复用户表单数据。这为新建操作，修改操作不需要cookie记录，因为修改操作是在已存在的记录基础上进行的。
+            cookie('department', input('post.apply_depart'));
             // halt($data);
             // 其他类型支持处理
             if ($data['support_type'] == '其他') {
@@ -123,14 +124,46 @@ class Record extends Auth
                 $this->success($res['msg'], 'index');
             } else {
                 $this->error($res['msg']);
-                exit;
             }
         }
 
         return $this->fetch();
     }
 
+    public  function clone_new()
+    {
+        $id = input('param.id');
+        $data = db('record')->find($id);
+        $com = db('company')->where('com_pid', 0)->select();
+        $this->assign("_com", $com);
+        if ($data && ($data['support_person'] == session('username') || session('isadmin'))) {
+            $this->assign('data', $data);
+        } else {
+            $this->error('非法修改或找不到记录');
+        }
 
+        if (request()->isPost()) {
+            $data = input('post.');
+        
+            // halt($data);
+            // 其他类型支持处理
+            if ($data['support_type'] == '其他') {
+                if ($data['other'] != '') {
+                    $data['support_type'] = $data['other'];
+                } else {
+                    $data['support_type'] = '其他';
+                }
+            }
+            $res = $this->db->store($data);
+            if ($res['valid']) {
+                $this->success($res['msg'], 'index');
+            } else {
+                $this->error($res['msg']);
+            }
+        }
+
+        return $this->fetch();
+    }
 
     public function validateExcel($data)
     {
@@ -154,11 +187,10 @@ class Record extends Auth
                 if ($index > 1) {
                     if (!$data[$index]["B"]) {
                         array_push($fillB_record, "B" . $index);
-                    }
-                    else{
+                    } else {
 
                         //获取所有子公司
-                        $coms=db('company')->where('com_pid',0)->column('com_name');
+                        $coms = db('company')->where('com_pid', 0)->column('com_name');
                         //halt($coms);
 
                         //sql server 返回如下
@@ -190,8 +222,8 @@ class Record extends Auth
                         }
                         */
 
-                        if(!array_key_exists($data[$index]["B"],$coms) && !in_array($data[$index]["B"],$coms)){
-                            array_push($fillB_record,"B".$index);
+                        if (!array_key_exists($data[$index]["B"], $coms) && !in_array($data[$index]["B"], $coms)) {
+                            array_push($fillB_record, "B" . $index);
                         }
                     }
 
@@ -248,7 +280,6 @@ class Record extends Auth
                         die("error format");
                         array_push($stimeerror_record, "L" . $index);
                     }
-
                 }
             }
         }
@@ -289,7 +320,6 @@ class Record extends Auth
         if (count($etimeerror_record) > 0) {
             $this->error('Excel表格M列中' . join(',', $etimeerror_record) . '结束时间(end_time)检测有误，请检查日期格式(YYYY/MM/DD)并大于开始时间！', 'import', '', 8);
         }
-
     }
 
     public function import()
@@ -299,7 +329,7 @@ class Record extends Auth
         if (request()->isPost()) {
             $objPHPExcel = new \PHPExcel();
             $file = request()->file('excel');
-            if(!$file){
+            if (!$file) {
                 $this->error("请上传Excel记录文件");
             }
             $info = $file->validate(['ext' => 'xlsx,xls'])->move(ROOT_PATH . 'public' . DS . 'upload' . DS . 'excel');
@@ -339,7 +369,7 @@ class Record extends Auth
                 for ($currentColumn = 'A'; $currentColumn <= $allColumn; $currentColumn++) {
                     //数据坐标
                     $address = $currentColumn . $currentRow;
-                    
+
                     if ($currentRow <= 1) {
                         //读取到的数据，保存到数组$arr中
                         $data[$currentRow][$currentColumn] = strval($currentSheet->getCell($address)->getValue());
@@ -396,7 +426,7 @@ class Record extends Auth
     {
         $id = input('param.id');
         $data = db('record')->find($id);
-        $page = input('param.page')?input('param.page') : 1;
+        $page = input('param.page') ? input('param.page') : 1;
         $this->assign('page', $page);
         if ($data && ($data['support_person'] == session('username') || session('isadmin'))) {
             $this->assign('_data', $data);
@@ -427,18 +457,18 @@ class Record extends Auth
     {
         $id = input('get.id');
         $record = db('record')->find($id);
-        $page = input('get.page')?input('get.page') : 1;
-        $from= input('get.from')?input('get.from') : 'list';
+        $page = input('get.page') ? input('get.page') : 1;
+        $from = input('get.from') ? input('get.from') : 'list';
         if ($record && ($record['support_person'] == session('username') || session('isadmin'))) {
             $res = $this->db->del($id);
             if ($res['valid']) {
-                if($from=='search'){
-                    $this->success($res['msg'], url('search')."?page=".$page);
-                }else{
-                    $this->success($res['msg'], url('index')."?page=".$page);
+                if ($from == 'search') {
+                    $this->success($res['msg'], url('search') . "?page=" . $page);
+                } else {
+                    $this->success($res['msg'], url('index') . "?page=" . $page);
                 }
             } else {
-                 $this->error($res['msg']);
+                $this->error($res['msg']);
             }
         } else {
             $this->error('没有权限删除该记录');
@@ -450,14 +480,13 @@ class Record extends Auth
     {
         $id = input('get.id');
         $record = db('record')->find($id);
-        $page = input('get.page')?input('get.page') : 1;
+        $page = input('get.page') ? input('get.page') : 1;
         if ($record && $record['support_person'] != session('username')) {
             $this->error('没有权限还原该记录');
-            exit;
         }
         $res = $this->db->restore($id);
         if ($res['valid']) {
-            $this->success($res['msg'], url('trash')."?page=".$page);
+            $this->success($res['msg'], url('trash') . "?page=" . $page);
         } else {
             $this->error($res['msg']);
         }
@@ -468,22 +497,21 @@ class Record extends Auth
     {
         $id = input('get.id');
         $record = db('record')->find($id);
-        $page = input('get.page')?input('get.page') : 1;
-        $admintrash = input('get.admintrash')?input('get.admintrash') : 0;
+        $page = input('get.page') ? input('get.page') : 1;
+        $admintrash = input('get.admintrash') ? input('get.admintrash') : 0;
         if ($record && ($record['support_person'] == session('username') || session('isadmin'))) {
             $res = $this->db->remove($id);
             if ($res['valid']) {
-                if($admintrash){
-                    $this->success($res['msg'], url('admintrash')."?page=".$page);
-                }else{
-                    $this->success($res['msg'], url('trash')."?page=".$page);
+                if ($admintrash) {
+                    $this->success($res['msg'], url('admintrash') . "?page=" . $page);
+                } else {
+                    $this->success($res['msg'], url('trash') . "?page=" . $page);
                 }
             } else {
                 $this->error($res['msg']);
             }
         } else {
             $this->error('没有权限彻底删除该记录');
-            exit;
         }
     }
 
@@ -494,22 +522,21 @@ class Record extends Auth
         $data = db('record')->find($id);
         $com = db('company')->where('com_pid', 0)->select();
         $this->assign("_com", $com);
-        $page=input('param.page');
-        $this->assign('page',$page);
-        $from=input('param.from');
-        $this->assign('from',$from);
+        $page = input('param.page');
+        $this->assign('page', $page);
+        $from = input('param.from');
+        $this->assign('from', $from);
 
         if ($data && ($data['support_person'] == session('username') || session('isadmin'))) {
             $this->assign('data', $data);
         } else {
             $this->error('非法修改或找不到记录');
-            exit;
         }
 
         if (request()->isPost()) {
             $data = input('post.');
-            $page = $data['page']?$data['page']:1;
-            $from = $data['from']?$data['from']:'list';
+            $page = $data['page'] ? $data['page'] : 1;
+            $from = $data['from'] ? $data['from'] : 'list';
             $record = db('record')->find($data['id']);
             if ($record && ($record['support_person'] == session('username') || session('isadmin'))) {
                 if ($data['support_type'] == '其他') {
@@ -532,7 +559,6 @@ class Record extends Auth
                 }
             } else {
                 $this->error('非法修改');
-                exit;
             }
         }
 
@@ -544,7 +570,7 @@ class Record extends Auth
     {
         Vendor('PHPExcel.PHPExcel');
         $data = input('post.data/a'); //此为数据多选时的id数组。
-        if(!$data){
+        if (!$data) {
             $this->error("导入的记录数不能为0");
         }
 
@@ -560,7 +586,7 @@ class Record extends Auth
           }
         */
 
-        if($data[0]==="id"){
+        if ($data[0] === "id") {
             array_shift($data);
         }
 
@@ -612,7 +638,6 @@ class Record extends Auth
 
         if ($i > 0) {
             $this->success('保存成功' . $i . '条记录');
-            exit;
         } else {
             $this->error('保存失败');
         }
@@ -624,7 +649,6 @@ class Record extends Auth
     {
         if (!session('isadmin')) {
             $this->error('您没有权限');
-            exit;
         }
 
         $start_time = input('get.start_time') ? input('get.start_time') : '';
@@ -695,7 +719,7 @@ class Record extends Auth
                 $v['work_time'] = $w_arr[0] * $w_arr[1];
             }
 
-            $group_type=strtoupper($v[$type]);
+            $group_type = strtoupper($v[$type]);
 
             if (!in_array($group_type, array_keys($tongji))) {
                 $tongji[$group_type] = $v['work_time'];
@@ -728,7 +752,6 @@ class Record extends Auth
     {
         if (!session('isadmin')) {
             $this->error('您没有权限导出记录');
-            exit;
         }
 
         $project_name = input('get.project_name') ? input('get.project_name') : '';
@@ -808,7 +831,6 @@ class Record extends Auth
             readfile($filepath);
         } else {
             $this->error('无法获取该附件');
-            exit;
         }
     }
 
@@ -817,7 +839,6 @@ class Record extends Auth
     {
         if (!session('isadmin')) {
             $this->error('您没有权限导出记录');
-            exit;
         }
 
         $project_name = input('get.project_name') ? input('get.project_name') : '';
@@ -876,39 +897,55 @@ class Record extends Auth
         // work_time,overtime,out_work_way,status,support_result,report_document,doc_folder,department,remarks')->select());
         $export = $record->alias('r')->join('userinfo u', 'r.support_person=u.username')->field('r.id,project_subcompany,apply_depart,apply_person,customer_manager,
         project_manager,project_name,support_type,support_person,position,out_work_way,start_time,end_time,
-        work_time,overtime,status,support_result,report_document,doc_folder,u.department,remarks')->order('project_name asc','apply_person asc','support_person asc','start_time asc','work_time desc')->select();
+        work_time,overtime,status,support_result,report_document,doc_folder,u.department,remarks')->order('project_name asc', 'apply_person asc', 'support_person asc', 'start_time asc', 'work_time desc')->select();
         $fileHeader = array(
-            '编号', '所属子公司', '申请部门', '申请人', '客户经理',
-            '项目经理', '项目名称', '支持类型', '支持人', '职位', '支持方式', '实际开始时间', '实际结束时间',
-            '工作量', '加班量', '完成状态', '支持成果', '报告文档', '文档所在文件夹', '支持部门', '备注'
+            '编号',
+            '所属子公司',
+            '申请部门',
+            '申请人',
+            '客户经理',
+            '项目经理',
+            '项目名称',
+            '支持类型',
+            '支持人',
+            '职位',
+            '支持方式',
+            '实际开始时间',
+            '实际结束时间',
+            '工作量',
+            '加班量',
+            '完成状态',
+            '支持成果',
+            '报告文档',
+            '文档所在文件夹',
+            '支持部门',
+            '备注'
         );
 
 
-        $newdata=[];
-        
+        $newdata = [];
+
 
         // 格式化工作量时间为数字
-        foreach($export as $row){
-           
-            foreach($row as $column=>$value){
-                
-                if($column=="work_time" and count(explode('*',$value))==2){
-                    
-                    $num1=intval(explode('*',$value)[0]);
-                    $num2=intval(explode('*',$value)[1]);
-                    $row[$column]=strval($num1*$num2);
-                    
-                }
-                if($column=="overtime" and count(explode('*',$value))==2){
-                    
-                    $num1=intval(explode('*',$value)[0]);
-                    $num2=intval(explode('*',$value)[1]);
-                    $row[$column]=strval($num1*$num2);    
-                }
+        foreach ($export as $row) {
 
+            foreach ($row as $column => $value) {
+
+                if ($column == "work_time" and count(explode('*', $value)) == 2) {
+
+                    $num1 = intval(explode('*', $value)[0]);
+                    $num2 = intval(explode('*', $value)[1]);
+                    $row[$column] = strval($num1 * $num2);
+                }
+                if ($column == "overtime" and count(explode('*', $value)) == 2) {
+
+                    $num1 = intval(explode('*', $value)[0]);
+                    $num2 = intval(explode('*', $value)[1]);
+                    $row[$column] = strval($num1 * $num2);
+                }
             }
 
-            $newdata[]=$row;
+            $newdata[] = $row;
         }
 
 
@@ -973,7 +1010,7 @@ class Record extends Auth
         }
 
 
-        
+
 
         //支持人统计
         array_push($tongji, array('', '', '', '', ''));
@@ -989,15 +1026,15 @@ class Record extends Auth
 
         $l = 1;
         // 相同项目总工作量
-        array_push($tongji,array('','','',''));
+        array_push($tongji, array('', '', '', ''));
         array_push($tongji, array('编号', 'Top10工作量项目', '工作量', '支持次数', '工作量占比'));
-        $project_count=$this->chartsByType('project_name',$start_time,$end_time,$support_person);
-        if(count($project_count)>10){
-            $top_project=array_slice($project_count,0,10);
-        }else{
-            $top_project=array_slice($project_count,0,count($project_count));
+        $project_count = $this->chartsByType('project_name', $start_time, $end_time, $support_person);
+        if (count($project_count) > 10) {
+            $top_project = array_slice($project_count, 0, 10);
+        } else {
+            $top_project = array_slice($project_count, 0, count($project_count));
         }
-        
+
         foreach ($top_project as $key => $value) {
             array_unshift($value, $l++);
             array_push($value, round(($value[2] / $all_work) * 100, 2) . '%');

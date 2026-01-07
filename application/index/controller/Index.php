@@ -51,7 +51,7 @@ class Index extends Controller
 
     public function pass(){
         if(!session('username')){
-            $this->redirect('index/index/login');exit;
+            $this->redirect('index/index/login');
         }
 
         if(request()->isPost()){
@@ -70,13 +70,13 @@ class Index extends Controller
 
             
             if(!$validate->check($data)){
-                $this->error($validate->getError());exit;
+                $this->error($validate->getError());
             }
             
 
             $res=$this->user->pass($data);
             if($res['valid']){
-                $this->success($res['msg']);exit;
+                $this->success($res['msg']);
             }else{
                 $this->error($res['msg']);
             }

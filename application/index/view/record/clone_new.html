@@ -2,7 +2,7 @@
 <div class="app-title">
     <div>
         <h1>
-            <i class="fa fa-dashboard"></i> 修改记录
+            <i class="fa fa-dashboard"></i> 克隆新建记录
         </h1>
     </div>
     <ul class="app-breadcrumb breadcrumb">
@@ -176,10 +176,7 @@
                 <textarea name="remarks" class="form-control" id="remarks" rows="5">{$data.remarks}</textarea>
                 <span class="help-block">其他说明</span>
             </div>
-            <input type="hidden" name="id" value="{$data.id}">
-            <input type="hidden" name="page" value="{$page}">
-            <input type="hidden" name="from" value="{$from}">
-            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="submit" class="btn btn-primary">创建新记录</button>
             <a href="javascript:history.back()" class="btn btn-danger">返回</a>
         </form>
     </div>
@@ -204,7 +201,6 @@
                         }else{ 
                             $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
                         }
-                        
                     });
 
                     // 如果不存在选项，则添加历史值

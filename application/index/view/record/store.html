@@ -30,8 +30,10 @@
             <div class="form-group has-feedback">
                 <label for="depart">申请部门</label>
                 <select class="form-control" id="depart" name="apply_depart">
+                                        <option value="">请选择所属区域</option>
+                    <option value="1">部门1</option>"
                 </select>
-                <span class="help-block">选择所属区域后，稍等片刻选择申请部门.</span>
+                <span class="help-block">选择所属区域后，稍等片刻选择申请部门11.</span>
             </div>
 
             <div class="form-group  has-feedback">
@@ -176,8 +178,9 @@
     require(['hdjs'], function (hdjs) {
 
         function load_depart() {
-            $('#depart').html('');
+            $('#depart').html('<option value="" selected disabled>请选择申请部门</option>');
             com = $('#area').val();
+            // 利用cookie记录部门，后续提交时，如果验证失败，则可以记住部门，从而恢复用户表单数据。这为新建操作，修改操作不需要cookie记录，因为修改操作是在已存在的记录基础上进行的。
             department = "{:cookie('department')}";
             if (com != null) {
                 $.post('{:url("store")}', { com: com }, function (data) {
@@ -190,7 +193,6 @@
                             $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
                         }
                     });
-
                 });
             }
         }
@@ -269,16 +271,16 @@
         });
 
         $('#area').change(function () {
-            $('#depart').html('');
+            $('#depart').html('<option value="" selected disabled>请选择申请部门</option>');
             com = $('#area').val();
             $.post('{:url("store")}', { com: com }, function (data) {
                 data = eval('(' + data + ')');
                 $.each(data, function (n, value) {
                     $('<option value=' + value.com_name + '>' + value.com_name + '</option>').appendTo("#depart");
                 });
-
             });
         });
+
         $('#other_support').hide();
         $('#support_type').change(function () {
             if ($("#support_type option:selected").val() == '其他') {

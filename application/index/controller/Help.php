@@ -23,7 +23,7 @@ class Help extends Controller{
             $data['datetime']=date('y-m-d H:i:s',time());
             $res=$this->db->store($data);
             if($res['valid']){
-                $this->success($res['msg']);exit;
+                $this->success($res['msg']);
             }else{
                 $this->error($res['msg']);
             }
@@ -41,7 +41,7 @@ class Help extends Controller{
         if($comment['uid']==session('userid')){
             $res=$this->db->del($id);
             if($res['valid']){
-                $this->success($res['msg']);exit;
+                $this->success($res['msg']);
             }else{
                 $this->error($res['msg']);
             }
