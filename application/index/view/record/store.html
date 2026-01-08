@@ -255,14 +255,14 @@
             }
         }
 
-        $('#date_timepicker_end').blur(function () {
+        $('#date_timepicker_end').on('blur change',function () {
             start = $('#date_timepicker_start').val();
             end = $('#date_timepicker_end').val();
             if (start != '' && end != '') {
                 checkDate(start, end);
             }
         });
-        $('#date_timepicker_start').blur(function () {
+        $('#date_timepicker_start').on('blur change',function () {
             start = $('#date_timepicker_start').val();
             end = $('#date_timepicker_end').val();
             if (start != '' && end != '') {
