@@ -7,6 +7,7 @@ class Help extends Auth{
     protected $db;
 
     protected function _initialize(){
+        parent::_initialize();
         $this->db=new \app\index\model\Comment();
     }
 
