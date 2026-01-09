@@ -1,16 +1,52 @@
 {extend name="layout"} {block name="content"}
 <div class="app-title">
-    <div>
-        <h1>
-            <i class="fa fa-pencil-square-o"></i> 填写说明 </h1>
-    </div>
-    <ul class="app-breadcrumb breadcrumb">
-        <li class="breadcrumb-item">
-            <i class="fa fa-home fa-lg"></i>
-        </li>
-        <li class="breadcrumb-item">
-            <a href="#">帮助</a>
-        </li>
-    </ul>
+  <div>
+    <h1><i class="fa fa-pencil-square-o"></i> 填写说明</h1>
+  </div>
+  <ul class="app-breadcrumb breadcrumb">
+    <li class="breadcrumb-item">
+      <i class="fa fa-home fa-lg"></i>
+    </li>
+    <li class="breadcrumb-item">
+      <a href="#">帮助</a>
+    </li>
+  </ul>
 </div>
+<div class="manual-show" id="manual"></div>
+
+<script type="text/markdown" id="md-content">
+  {$content|htmlentities}
+</script>
+<script>
+  require(["marked"], function (marked) {
+    marked.setOptions({
+      sanitize: true,
+    });
+    raw_content = $("#md-content").html();
+    // console.log(raw_content);
+    const html = marked.parse(raw_content);
+    $("#manual").html(html);
+  });
+</script>
+<style>
+  .manual-show ol {
+    list-style: decimal;
+    padding-left: 1.5em;
+    margin: 0.5em 0;
+  }
+
+  .manual-show ul {
+    list-style: disc;
+    padding-left: 1.5em;
+    margin: 0.5em 0;
+  }
+
+  .manual-show li {
+    line-height: 1.7;
+  }
+  .manual-show ol > li::marker {
+    color: #00635a;
+    font-weight: 500;
+}
+</style>
 {/block}

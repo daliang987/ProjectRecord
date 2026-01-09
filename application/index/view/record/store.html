@@ -84,7 +84,7 @@
             <div class="form-group has-feedback">
                 <label for="support_person">支持人</label>
                 <input type="text" class="form-control" id="support_person" pattern="^[\u4e00-\u9fa5]{2,4}$"
-                    title="只能填写2-4位汉字" name="support_person" placeholder="请输入支持人" aria-describedby="support_person">
+                    title="只能填写2-4位汉字" name="support_person" value="{:session('username')}" placeholder="请输入支持人" aria-describedby="support_person">
                 <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                 <span id="support_person" class="sr-only">(success)</span>
                 <span class="help-block">支持人姓名.</span>

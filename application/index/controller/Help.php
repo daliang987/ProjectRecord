@@ -1,54 +1,69 @@
 <?php
+
 namespace app\index\controller;
+
 use think\Controller;
 
-class Help extends Auth{
+class Help extends Auth
+{
 
     protected $db;
 
-    protected function _initialize(){
+    protected function _initialize()
+    {
         parent::_initialize();
-        $this->db=new \app\index\model\Comment();
+        $this->db = new \app\index\model\Comment();
     }
 
-    public function manual(){
+    public function manual()
+    {
+        $file = ROOT_PATH . 'application/extra/manual.md';
+        // halt($file);
+        if (!file_exists($file)) {
+            $this->error('文件不存在');
+        }
 
+        $content = file_get_contents($file);
+        // 传给模板
+        $this->assign('content', $content);
+    
         return $this->fetch();
     }
 
-    public function bug(){
+    public function bug()
+    {
 
-        if(request()->isPost()){
-            $data=input('post.'); 
-            $data['uid']=session('userid');
-            $data['datetime']=date('y-m-d H:i:s',time());
-            $res=$this->db->store($data);
-            if($res['valid']){
+        if (request()->isPost()) {
+            $data = input('post.');
+            $data['uid'] = session('userid');
+            $data['datetime'] = date('y-m-d H:i:s', time());
+            $res = $this->db->store($data);
+            if ($res['valid']) {
                 $this->success($res['msg']);
-            }else{
+            } else {
                 $this->error($res['msg']);
             }
         }
 
-        $comment=db('comment')->field('c.id as cid,uid,comment,datetime,u.username')->alias('c')->join('userinfo u','c.uid=u.id','left')->order('datetime','desc')->paginate(10);
-        $this->assign('comment',$comment);
+        $comment = db('comment')->field('c.id as cid,uid,comment,datetime,u.username')->alias('c')->join('userinfo u', 'c.uid=u.id', 'left')->order('datetime', 'desc')->paginate(10);
+        $this->assign('comment', $comment);
 
         return $this->fetch();
     }
 
-    public function delbug(){
-        $id=input('get.id');
-        $comment=db('comment')->find($id);
-        if($comment['uid']==session('userid')){
-            $res=$this->db->del($id);
-            if($res['valid']){
+    public function delbug()
+    {
+        $id = input('get.id');
+        $comment = db('comment')->find($id);
+        if ($comment['uid'] == session('userid')) {
+            $res = $this->db->del($id);
+            if ($res['valid']) {
                 $this->success($res['msg']);
-            }else{
+            } else {
                 $this->error($res['msg']);
             }
-        }else{
+        } else {
             $this->error('你没有权限删除该评论');
         }
-        
     }
 }
